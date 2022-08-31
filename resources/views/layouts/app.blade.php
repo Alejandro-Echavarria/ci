@@ -9,36 +9,24 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+        <!-- My Styles -->
+        <link rel="stylesheet" href="{{ asset('css/my-style.css') }}">
         <!-- Styles -->
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
-
         <div class="min-h-screen">
-            @livewire('navigation-menu')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+            @livewire('navigation')
 
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
         </div>
-
         @stack('modals')
-
         @livewireScripts
     </body>
 </html>
