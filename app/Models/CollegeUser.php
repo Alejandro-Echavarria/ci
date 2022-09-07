@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Quater extends Model
+class CollegeUser extends Model
 {
     use HasFactory;
 
-    // Relacion uno a muchos
-    public function subjects()
+    // Relacion inversa uno a muchos
+    public function college()
     {
-        return $this->hasMany(Subject::class);
+        return $this->belongsTo(College::class);
     }
 
-    // Relacion uno a muchos inversa
+    // Relacion inversa uno a muchos
     public function user()
     {
         return $this->belongsTo(User::class);
