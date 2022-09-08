@@ -1,0 +1,68 @@
+.container{
+    @apply max-w-7xl mx-auto px-4;
+}
+
+@media(min-with:640px){
+    .container{
+        @apply px-6;
+    }
+}
+
+@media(min-with:1024px){
+    .container{
+        @apply px-8;
+    }
+}
+
+@layer base {
+    ul {
+        @apply list-disc;
+        @apply mt-3;
+    }
+
+    ol {
+        @apply list-decimal;
+        @apply mt-3;
+    }
+
+    #post-body ul {
+        @apply pl-14;
+    }
+
+    #post-body ol {
+        @apply pl-14;
+    }
+
+    #post-body a {
+        @apply text-blue-700;
+    }
+
+    #post-body table {
+        @apply w-full;
+        @apply table-auto;
+    }
+
+    #post-body figure {
+        @apply overflow-x-auto;
+    }
+    
+    #post-body th {
+        @apply text-left;
+        @apply border-b;
+    }
+
+    #post-body td {
+        @apply border-b;
+    }
+
+    #post-body h1, h2, h3 {
+        @apply text-2xl;
+        @apply text-gray-700
+    }
+
+    #post-body blockquote {
+        @apply border-l-2;
+        @apply pl-3;
+        @apply italic;
+    }
+}

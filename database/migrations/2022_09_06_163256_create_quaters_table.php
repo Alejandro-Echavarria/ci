@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('quaters', function (Blueprint $table) {
             
             $table->id();
-            $table->string('name', 255);
-            $table->string('slug', 255);
+            $table->string('name', 60);
+            $table->string('slug', 60);
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')

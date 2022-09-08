@@ -4,7 +4,7 @@
 @endphp
 
 <nav class="color-primario" x-data="{ open: false }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-6 xl:px-16">
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
                 {{-- logotipo --}}
@@ -43,11 +43,11 @@
                                     id="user-menu-item-0">Perfil
                                 </a>
                                 
-                                {{-- @can('admin.home')
+                                {{-- @can('admin.home') --}}
                                     <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1"
                                         id="user-menu-item-1">Dashboard
                                     </a>
-                                @endcan --}}
+                                {{-- @endcan --}}
 
                                 <form method="POST" action="{{ route('logout') }}" x-data>
                                     @csrf    
@@ -58,12 +58,12 @@
                             </div>
                         </div>
                     @else
-                        {{-- <a href="{{ route('login') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                        <a href="{{ route('login') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                             Login
                         </a>
                         <a href="{{ route('register') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                             Register
-                        </a> --}}
+                        </a>
                     @endauth
                 </div>
             </div>
