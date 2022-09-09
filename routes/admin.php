@@ -1,6 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\GradeController;
+use App\Http\Controllers\Admin\HomeController;
 
-Route::get('/admin', [HomeController::class, 'index'])->name('admin.home');;
+Route::get('/', [HomeController::class, 'index'])->name('admin.index');
+
+Route::resource('grades', GradeController::class)->names('admin.grades');

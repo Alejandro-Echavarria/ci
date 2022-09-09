@@ -9,16 +9,30 @@
             <div class="flex items-center">
                 {{-- logotipo --}}
                 <a href="/" class="flex-shrink-0">
-                    <p class="font-bold text-gray-200"><span class="color-logo text-3xl">M</span> - dev</p>
+                    <p class="font-bold text-gray-200"><span class="color-logo h-12 w-12">M</span> - dev</p>
                     {{-- <img class="h-12 w-12" src="{{asset('img/logo-final.svg')}}" alt="Logo representativo"> --}}
                 </a>
                 {{-- Menu lg --}}
                 <div class="hidden md:block relative ml-10 ">
                     <div class="items-baseline">
-                        {{-- <a href="{{route('posts.index')}}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-bold">Inicio</a> --}}
-                        {{-- {!!request()->routeIs('posts.index') ? $decorador : ""!!} --}}
+                        <a href="{{ route('home.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm">Inicio</a>
+                        {!!request()->routeIs('home.index') ? $decorador : ""!!}
                     </div>
                 </div>
+                @auth
+                    <div class="hidden md:block relative">
+                        <div class="items-baseline">
+                            <a href="{{ route('admin.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm">Dashboard</a>
+                            {!!request()->routeIs('admin.index') ? $decorador : ""!!}
+                        </div>
+                    </div>
+                    <div class="hidden md:block relative">
+                        <div class="items-baseline">
+                            <a href="{{ route('admin.grades.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm">Calificaciones</a>
+                            {!!request()->routeIs('admin.grades.index') ? $decorador : ""!!}
+                        </div>
+                    </div>
+                @endauth
             </div>
             <div class="hidden md:block">
                 <div class="ml-4 flex items-center md:ml-6">
@@ -35,7 +49,7 @@
                                         alt="">
                                 </button>
                             </div>
-                            <div x-show="open" x-on:click.away="open = false" x-transition:enter.duration.200ms x-transition:leave.duration.200ms style="display: none;" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            <div x-show="open" x-on:click.away="open = false" x-transition:enter.duration.200ms x-transition:leave.duration.200ms style="display: none;" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-sm py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                 tabindex="-1">
                                 
@@ -44,7 +58,7 @@
                                 </a>
                                 
                                 {{-- @can('admin.home') --}}
-                                    <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1"
+                                    <a href="{{ route('admin.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1"
                                         id="user-menu-item-1">Dashboard
                                     </a>
                                 {{-- @endcan --}}
@@ -118,16 +132,16 @@
                 </div>
                 <div class="mt-3">
                     <div class="px-4 pt-2 space-y-1 relative">
-                        <a href="{{ route('profile.show') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">Perfil</a>
+                        <a href="{{ route('profile.show') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base">Perfil</a>
                         {!!request()->routeIs('profile.show') ? $decoradorVertical : ""!!}
                     </div>
                     <div class="px-4 pt-2 space-y-1 relative">
-                        {{-- <a href="{{ route('admin.home') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">Dashboard</a> --}}
+                        <a href="{{ route('admin.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base">Dashboard</a>
                     </div>
                     <div class="px-4 pt-2 space-y-1 relative">
                         <form method="POST" action="{{ route('logout') }}" x-data>
                             @csrf   
-                            <a href="{{ route('logout') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold" @click.prevent="$root.submit();">
+                            <a href="{{ route('logout') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base" @click.prevent="$root.submit();">
                                 Cerrar sesión
                             </a>
                         </form>
@@ -135,10 +149,10 @@
                 </div>
             </div>
         @else
-            {{-- <div class="px-4 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-700">
-                <a href="{{ route('login') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">Login</a>
-                <a href="{{ route('register') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">Register</a>
-            </div> --}}
+            <div class="px-4 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-700">
+                <a href="{{ route('login') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base">Login</a>
+                <a href="{{ route('register') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base">Register</a>
+            </div>
         @endauth
     </div>
 </nav>
