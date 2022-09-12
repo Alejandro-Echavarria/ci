@@ -14,7 +14,7 @@ class GradeIndex extends Component
     public $page = 1;
     // protected $paginationTheme = 'bootstrap';
     protected $queryString = [
-        'search' => ['except' => '', 'as' => 's'],
+        'search' => ['except' => '', 'as' => 'q'],
         'page' => ['except' => 1, 'as' => 'p'],
     ];
 

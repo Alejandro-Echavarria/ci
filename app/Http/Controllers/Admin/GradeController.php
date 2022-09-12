@@ -17,7 +17,7 @@ class GradeController extends Controller
 
     public function create()
     {
-        return response('aaaa');
+        //
     }
 
     public function store(Request $grade)
@@ -32,7 +32,7 @@ class GradeController extends Controller
 
     public function edit(Grade $grade)
     {
-        //
+        return view('admin.grades.edit', compact('grade'));
     }
 
     public function update(Request $request, $grade)

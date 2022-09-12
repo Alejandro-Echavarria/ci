@@ -29,7 +29,7 @@
                     <div class="hidden md:block relative">
                         <div class="items-baseline">
                             <a href="{{ route('admin.grades.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm">Calificaciones</a>
-                            {!!request()->routeIs('admin.grades.index') ? $decorador : ""!!}
+                            {!!request()->routeIs('admin.grades*') ? $decorador : ""!!}
                         </div>
                     </div>
                 @endauth

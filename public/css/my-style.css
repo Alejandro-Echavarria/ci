@@ -4,7 +4,8 @@
 }
 
 .color-secundario {
-    background-color: rgba(241,245,249,1);
+    background-color: rgb(2, 98, 223);
+    color: white;
 }
 
 .img-post{
