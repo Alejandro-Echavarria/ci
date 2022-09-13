@@ -166,6 +166,16 @@
     border: 1px solid rgb(219, 219, 219);
 }
 
+
+/* Removing the up and down arrows from the input type number. */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0;
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
 @media (max-width: 476px){
     
     .hidden-letters{display: none;}
