@@ -13,19 +13,24 @@ class GradeController extends Controller
 {
     public function index()
     {
-        $grades = Grade::all();
+        $grades = Grade::all()->where('status !=', 0);
         
         return view('admin.grades.index', compact('grades'));
     }
 
     public function create()
     {
-        //
+        return view('admin.grades.create');
     }
 
-    public function store(Request $grade)
+    public function store(GradeRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['name'] = strtoupper($data['name']);
+
+        $grade = Grade::create($data);
+
+        return redirect()->route('admin.grades.edit', $grade)->with('info', 'La calificación ('. $grade->name .') se creó con éxito.');
     }
 
     public function show(Grade $grade)
@@ -40,12 +45,12 @@ class GradeController extends Controller
 
     public function update(GradeRequest $request, Grade $grade)
     {
-        $arrRequest = $request->all();
-        $arrRequest['name'] = strtoupper($request['name']);
+        $data = $request->all();
+        $data['name'] = strtoupper($data['name']);
 
-        $grade->update($arrRequest);
+        $grade->update($data);
 
-        return redirect()->route('admin.grades.edit', $grade)->with('info', 'La calificación se actualizó con éxito.');
+        return redirect()->route('admin.grades.edit', $grade)->with('info', 'La calificación ('. $grade->name .') se actualizó con éxito.');
     }
 
     public function destroy(Grade $grade)

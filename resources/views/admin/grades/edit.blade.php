@@ -27,7 +27,11 @@
                 @if (session('info'))
                     <x-admin.alerts.alerts :message="session('info')" :type="'green-color'" />
                 @endif
-                <x-admin.forms.form :fields="$fields" :grade="$grade" />
+                <div class="color-primario p-5 rounded-2xl mt-6">
+                    {!! Form::model($grade, ['route' => ['admin.grades.update', $grade], 'method' => 'put']) !!}
+                        <x-admin.forms.form-edit :fields="$fields" :object="$grade" />
+                    {!! Form::close() !!}
+                </div>
             </div>
         </div>
     </div>
