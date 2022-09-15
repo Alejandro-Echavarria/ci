@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+// Mutador
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 class Grade extends Model
 {
     use HasFactory;
@@ -32,5 +35,15 @@ class Grade extends Model
 
             return Carbon::parse($value)->format('d-m-Y - h:i:s A');
         }
+    }
+
+    protected function name(): Attribute 
+    {
+        return new Attribute (
+            set: function ($value) 
+            {
+                return strtoupper($value);
+            }
+        );
     }
 }

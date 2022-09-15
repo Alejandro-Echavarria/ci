@@ -4,7 +4,7 @@
 @endphp
 
 <nav class="color-primario" x-data="{ open: false }">
-    <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-6 xl:px-16">
+    <div class="max-w-full mx-auto px-6 sm:px-6 lg:px-6 xl:px-16 2xl:px-16">
         <div class="flex items-center h-16">
             {{-- logotipo --}}
             <a href="/" class="flex-shrink-0">
@@ -33,6 +33,12 @@
                                 {!!request()->routeIs('admin.grades*') ? $decorador : ""!!}
                             </div>
                         </div>
+                        <div class="hidden md:block relative">
+                            <div class="items-baseline">
+                                <a href="{{ route('admin.quaters.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm">Cuatrimestres</a>
+                                {!!request()->routeIs('admin.quaters*') ? $decorador : ""!!}
+                            </div>
+                        </div>
                     @endauth
                 </div>
                 <div class="hidden md:block">
@@ -59,9 +65,9 @@
                                     </a>
                                     
                                     {{-- @can('admin.home') --}}
-                                        <a href="{{ route('admin.index') }}" class="block px-4 m-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="-1"
+                                        {{-- <a href="{{ route('admin.index') }}" class="block px-4 m-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="-1"
                                             id="user-menu-item-1">Dashboard
-                                        </a>
+                                        </a> --}}
                                     {{-- @endcan --}}
     
                                     <form method="POST" action="{{ route('logout') }}" x-data>

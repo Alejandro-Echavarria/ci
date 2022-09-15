@@ -26,7 +26,6 @@ class GradeController extends Controller
     public function store(GradeRequest $request)
     {
         $data = $request->all();
-        $data['name'] = strtoupper($data['name']);
 
         $grade = Grade::create($data);
 
@@ -46,7 +45,6 @@ class GradeController extends Controller
     public function update(GradeRequest $request, Grade $grade)
     {
         $data = $request->all();
-        $data['name'] = strtoupper($data['name']);
 
         $grade->update($data);
 
