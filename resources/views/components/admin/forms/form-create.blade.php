@@ -1,6 +1,6 @@
 @props(['fields', 'class'])
 
-<div class="grid grid-cols-1 sm:grid-cols-{!! $class['col'] !!} sm:gap-3">
+<div class="grid grid-cols-{!! $class['col'] !!} sm:grid-cols-{!! $class['col'] !!} sm:gap-3">
     @foreach ($fields as $field)
         <div class="mb-6">
             <label 

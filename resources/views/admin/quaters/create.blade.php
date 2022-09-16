@@ -4,12 +4,12 @@
             'name'           => 'Nombre',
             'name-attribute' => 'name',
             'type'           => 'text',
-            'placeholder'    => 'Elige una letra (A, B, C ...)',
+            'placeholder'    => 'Elige un nombre',
             'required'       => 'required'
         ]
     ];
-
-    $class = ['col' => '1'];
+    $class = ['col' => '1', 'col2' => '1'];
+    $route = 'quaters';
 @endphp
 
 <x-app-layout>
@@ -20,6 +20,10 @@
                 <div class="color-primario p-5 rounded-2xl">
                     {!! Form::open(['route' => 'admin.quaters.store']) !!}
                         <x-admin.forms.form-create :fields="$fields" :class="$class" />
+                        <div id="subjects">
+                            <x-admin.selects.dinamyc-select :class="$class" />
+                        </div>
+                        <x-admin.forms.buttons.create-edit :route="$route" />
                     {!! Form::close() !!}
                 </div>
             </div>
