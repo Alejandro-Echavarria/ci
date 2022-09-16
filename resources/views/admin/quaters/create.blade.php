@@ -6,29 +6,20 @@
             'type'           => 'text',
             'placeholder'    => 'Elige una letra (A, B, C ...)',
             'required'       => 'required'
-        ],
-        [   
-            'name'           => 'Valor',
-            'name-attribute' => 'value',
-            'type'           => 'number',
-            'placeholder'    => 'Elige un valor para esta calificaci&oacute;n',
-            'required'       => 'required'
         ]
     ];
-    $class = ['col' => '2'];
-    $route = 'grades';
+
+    $class = ['col' => '1'];
 @endphp
 
 <x-app-layout>
     <div class="py-6">
         <div class="container">
             <div class="p-2">
-                <h1 class="text-3xl text-gray-700 font-bold pb-6">Calificaciones</h1>
+                <h1 class="text-3xl text-gray-700 font-bold pb-6">Cuatrimestres</h1>
                 <div class="color-primario p-5 rounded-2xl">
-                    {!! Form::open(['route' => 'admin.grades.store']) !!}
+                    {!! Form::open(['route' => 'admin.quaters.store']) !!}
                         <x-admin.forms.form-create :fields="$fields" :class="$class" />
-                        <x-admin.selects.select />     
-                        <x-admin.forms.buttons.create-edit :route="$route" />
                     {!! Form::close() !!}
                 </div>
             </div>

@@ -15,6 +15,8 @@
             'required'       => 'required'
         ]
     ];
+    $class = ['col' => '2'];
+    $route = 'grades';
 @endphp
 
 <x-app-layout>
@@ -29,7 +31,9 @@
                 @endif
                 <div class="color-primario p-5 rounded-2xl mt-6">
                     {!! Form::model($grade, ['route' => ['admin.grades.update', $grade], 'method' => 'put']) !!}
-                        <x-admin.forms.form-edit :fields="$fields" :object="$grade" />
+                        <x-admin.forms.form-edit :fields="$fields" :object="$grade" :class="$class" />
+                        <x-admin.selects.select />
+                        <x-admin.forms.buttons.create-edit :route="$route" />
                     {!! Form::close() !!}
                 </div>
             </div>

@@ -1,9 +1,6 @@
-@props(['fields', 'object'])
-@php
-    $route = 'grades';
-@endphp
+@props(['fields', 'object', 'class'])
 
-<div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-3">
+<div class="grid grid-cols-1 sm:grid-cols-{!! $class['col'] !!} sm:gap-3">
     @foreach ($fields as $field)
         <div class="mb-6">
             <label 
@@ -27,16 +24,3 @@
         </div>
     @endforeach
 </div>
-<div class="grid grid-cols-1">
-    <div class="mb-6">
-        <label 
-            for="status" 
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Estado
-        </label>
-        <x-admin.selects.select />
-        @error('status')
-            <small class="text-red-500">{{$message}}</small>
-        @enderror
-    </div>
-</div>
-<x-admin.forms.buttons.create-edit :route="$route" />

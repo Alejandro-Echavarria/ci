@@ -16,7 +16,7 @@ class QuaterController extends Controller
 
     public function create()
     {
-        //
+        return view('admin.quaters.create');
     }
 
     public function store(Request $request)
