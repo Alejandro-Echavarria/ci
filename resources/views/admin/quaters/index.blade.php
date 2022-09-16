@@ -8,3 +8,4 @@
         </div>
     </div>
 </x-app-layout>
+<script src="{{ asset('js/functions_quaters.js') }}"></script>

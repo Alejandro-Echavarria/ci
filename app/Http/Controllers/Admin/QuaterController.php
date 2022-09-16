@@ -11,9 +11,7 @@ class QuaterController extends Controller
 {
     public function index()
     {
-        $quaters = Quater::with('subjects')->get();
-
-        return view('admin.quaters.index', compact('quaters'));
+        return view('admin.quaters.index');
     }
 
     public function create()

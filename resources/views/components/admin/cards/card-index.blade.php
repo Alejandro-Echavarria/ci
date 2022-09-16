@@ -17,7 +17,7 @@
                     <ul class="list-inside">
                         @if ($record->subjects->count())
                             @foreach ($record->subjects as $key => $item)
-                                <li class="hover:bg-gray-700 rounded-lg px-3">Materia {!! $key+1 !!}: <span class="ml-3 text-sm font-bold">{!! $item->grade->name !!}</span></li>
+                                <li class="hover:bg-gray-700 rounded-lg px-3 transition text-gray-300">Materia {!! $key+1 !!}: <span class="ml-3 text-sm font-bold text-white">{!! $item->grade->name !!}</span></li>
                             @endforeach
                         @else
                             <li>No exiten calificaciones registradas asasa sasasas </li>
