@@ -4,7 +4,7 @@
 @endphp
 
 <nav class="color-primario" x-data="{ open: false }">
-    <div class="max-w-full mx-auto px-6 sm:px-6 lg:px-6 xl:px-16 2xl:px-16">
+    <div class="max-w-full mx-auto px-6 sm:px-6 lg:px-6 xl:px-8 2xl:px-16">
         <div class="flex items-center h-16">
             {{-- logotipo --}}
             <a href="/" class="flex-shrink-0">

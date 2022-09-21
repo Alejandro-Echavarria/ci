@@ -9,6 +9,13 @@ class Quater extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'slug', 'user_id'];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     // Relacion uno a muchos
     public function subjects()
     {

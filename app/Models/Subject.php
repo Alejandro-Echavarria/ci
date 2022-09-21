@@ -9,6 +9,8 @@ class Subject extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['quater_id', 'grade_id'];
+
     // Relacion uno a muchos inversa
     public function quater(){
 

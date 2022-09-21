@@ -21,7 +21,7 @@
                     {!! Form::open(['route' => 'admin.quaters.store']) !!}
                         <x-admin.forms.form-create :fields="$fields" :class="$class" />
                         <div id="subjects">
-                            <x-admin.selects.dinamyc-select :class="$class" />
+                            @livewire('admin.grades-select')
                         </div>
                         <x-admin.forms.buttons.create-edit :route="$route" />
                     {!! Form::close() !!}
