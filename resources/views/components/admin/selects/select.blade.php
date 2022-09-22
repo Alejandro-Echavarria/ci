@@ -5,7 +5,7 @@
     ];
 @endphp
 
-<div class="grid grid-cols-1">
+<div class="grid grid-cols-1 mt-3">
     <div class="mb-6">
         <label 
             for="status" 

@@ -2,7 +2,7 @@
 
 <div class="grid grid-cols-{!! $class['col'] !!} sm:grid-cols-{!! $class['col'] !!} sm:gap-3">
     @foreach ($fields as $field)
-        <div class="mb-6">
+        <div>
             <label 
                 for="{!! $field['name-attribute'] !!}" 
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">

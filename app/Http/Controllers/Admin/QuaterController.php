@@ -20,29 +20,9 @@ class QuaterController extends Controller
         return view('admin.quaters.create');
     }
 
-    public function store(QuaterRequest $request)
+    public function edit(Quater $quater)
     {
-        $data = $request->all();
-        $data['slug'] = Str::slug($data['name']);
-
-        $quater = Quater::create($data);
-
-        foreach ($request->subjects as $subject) {
-            
-            $quater->subjects()->create(['grade_id' => $subject]);
-        }
-
-        return redirect()->route('admin.quaters.edit', $quater)->with('info', 'El cuatrimestre ('. $quater->name .') se creó con éxito.');
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        return view('admin.quaters.edit', compact('quater'));
     }
 
     public function update(Request $request, $id)
