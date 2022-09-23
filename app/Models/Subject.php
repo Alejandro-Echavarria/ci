@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
+    protected $connection = "mysql";
 
     protected $fillable = ['quater_id', 'grade_id'];
 

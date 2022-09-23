@@ -15,11 +15,6 @@ class Quater extends Model
 
     protected $fillable = ['name', 'slug', 'user_id'];
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
     // Relacion uno a muchos
     public function subjects()
     {

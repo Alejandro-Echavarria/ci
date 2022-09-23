@@ -8,6 +8,11 @@
                 @if (session('info'))
                     <x-admin.alerts.alerts :message="session('info')" :type="'green-color'" />
                 @endif
+                <div class="color-primario p-5 rounded-2xl mt-6">
+                    {!! Form::open() !!}
+                        @livewire('admin.grades-form-edit', ['quater' => $quater])
+                    {!! Form::close() !!}
+                </div>
             </div>
         </div>
     </div>

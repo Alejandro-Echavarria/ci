@@ -28,5 +28,6 @@
         </div>
         @stack('modals')
         @livewireScripts
+        <script src="{{ asset('js/generals_functions.js') }}"></script>
     </body>
 </html>

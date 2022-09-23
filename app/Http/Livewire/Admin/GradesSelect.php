@@ -9,11 +9,8 @@ use Illuminate\Support\Str;
 
 class GradesSelect extends Component
 {
-    // orderproducts
     public $subjects = [];
-    // all products
     public $grades = [];
-
     public $name;
 
     // Validations rules
@@ -59,7 +56,7 @@ class GradesSelect extends Component
     {
         $totalQuaters = Quater::all();
            
-        if (count($totalQuaters) < 10) {
+        if (count($totalQuaters) < 15) {
             
             $this->validate();
             $slug = Str::slug($this->name);
@@ -74,7 +71,7 @@ class GradesSelect extends Component
     
             return redirect()->route('admin.quaters.edit', $quater)->with('info', 'El cuatrimestre ('. $quater->name .') se creó con éxito.');
         }else{
-            session()->flash('info', 'El número máximo de cuatrimestres permitidos son 10');
+            session()->flash('info', 'El número máximo de cuatrimestres permitidos son 15');
         }
 
     }
