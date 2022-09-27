@@ -7,3 +7,15 @@ const closeAlert = (event) => {
     }
     element.parentNode.parentNode.removeChild(element.parentNode);
 }
+
+const $elementos = document.querySelectorAll(".prevenir-envio");
+
+$elementos.forEach(elemento => {
+    elemento.addEventListener("keydown", (evento) => {
+        if (evento.key == "Enter") {
+            // Prevenir
+            evento.preventDefault();
+            return false;
+        }
+    });
+});

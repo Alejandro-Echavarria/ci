@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class GradesFormEdit extends Component
 {
-    public $subjects;
+    public $subjects = [[]];
     public $subjectsId;
     public $grades;
     public $quater;
@@ -19,11 +19,11 @@ class GradesFormEdit extends Component
     // Validations rules
     protected $rules = [
         'name'       => 'required|min:1|max:60',
-        // 'subjects.*' => 'required|integer'
+        'subjects.*' => 'required|integer'
     ];
 
     protected $validationAttributes  = [
-        // 'subjects.*' => ''
+        'subjects.*' => ''
     ];
 
     public function mount()
@@ -52,6 +52,7 @@ class GradesFormEdit extends Component
         
         $subject = Subject::find($id);
         $subject->delete();
+        $this->mount();
     }
 
     public function render()
@@ -73,12 +74,13 @@ class GradesFormEdit extends Component
             $quater->update(['name' => $this->name, 
                                       'slug' => $slug]);
     
-            foreach ($this->subjects as $subject) {
+            foreach ($this->subjects as $key => $subject) {
                 
-                Subject::where('id', 99)->update(['grade_id' => request('subjects[]')]);
+                $quater->subjects()->where('id', $this->subjectsId[$key])->update(['grade_id' => $subject]);
+                $quater->touch();
             }
-    
-            return redirect()->route('admin.quaters.edit', $quater)->with('info', 'El cuatrimestre ('. $quater->name .') se creó con éxito.');
+            
+            return redirect()->route('admin.quaters.edit', $quater)->with('info', 'El cuatrimestre ('. $quater->name .') se actualizó con éxito.');
         }else{
             session()->flash('error', 'El número máximo de cuatrimestres permitidos son 15');
         }

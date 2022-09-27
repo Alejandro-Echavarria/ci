@@ -9,7 +9,7 @@
                     <x-admin.alerts.alerts :message="session('info')" :type="'green-color'" />
                 @endif
                 <div class="color-primario p-5 rounded-2xl mt-6">
-                    {!! Form::open() !!}
+                    {!! Form::model($quater, ['id' => 'edit-quater', 'class' => 'prevenir-envio'] ) !!}
                         @livewire('admin.grades-form-edit', ['quater' => $quater])
                     {!! Form::close() !!}
                 </div>
