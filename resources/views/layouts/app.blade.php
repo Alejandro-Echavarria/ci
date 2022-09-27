@@ -29,5 +29,6 @@
         @stack('modals')
         @livewireScripts
         <script src="{{ asset('js/generals_functions.js') }}"></script>
+        <script src="{{ asset('vendor/sweetalert/sweetalert2.all.min.js') }}"></script>
     </body>
 </html>

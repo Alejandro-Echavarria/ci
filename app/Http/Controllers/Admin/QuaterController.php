@@ -30,8 +30,24 @@ class QuaterController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy(Quater $quater)
     {
-        //
+        $message = '';
+        
+        if ($quater) {
+            
+            $request = $quater->delete();
+
+            if ($request > 0) {
+                
+                $message = response()->json(['status' => true, 'message' => 'datos eliminados']);
+            }else {
+                $message = response()->json(['status' => false, 'message' => 'Ocurrió un error']);
+            }
+        }else{
+            $message = response()->json(['status' => true, 'message' => 'Error']);
+        }
+
+        return $message;
     }
 }

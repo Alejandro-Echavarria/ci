@@ -25,7 +25,7 @@ class GradesSelect extends Component
 
     public function mount()
     {
-        $this->grades = Grade::all();
+        $this->grades = Grade::all()->where('status', 1);
         $this->subjects = [
             [],
         ];

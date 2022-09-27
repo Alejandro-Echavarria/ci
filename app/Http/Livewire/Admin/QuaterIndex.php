@@ -25,4 +25,9 @@ class QuaterIndex extends Component
 
         return view('livewire.admin.quater-index', compact('quaters'));
     }
+
+    public function delete($record)
+    {
+        dd($record);
+    }
 }

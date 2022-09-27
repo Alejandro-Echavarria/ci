@@ -9,3 +9,4 @@
     </div>
 </x-app-layout>
 <script src="{{ asset('js/functions_quaters.js') }}"></script>
+<script>const base_url = "{!! env('APP_URL') !!}" </script>

@@ -10,7 +10,7 @@
                 Nombre<span class="text-red-500"> *</span>
             </label>
             <input
-                wire:model="name"
+                wire:model.debounce.300ms="name"
                 type="text" 
                 id="name" 
                 name="name" 
@@ -33,7 +33,7 @@
                         <div class="flex">
                             <p class="block text-sm font-medium text-gray-900 dark:text-gray-300 place-self-center">Materia&nbsp;-&nbsp;{{ $key+1 }}</p>
                         </div>
-                        <select wire:model="subjects.{{ $key }}" id="subjects[{{ $id }}]" 
+                        <select wire:model.defer="subjects.{{ $key }}" id="subjects[{{ $id }}]" 
                         name="subjects[{{ $id }}]" class="w-full p-2.5 text-sm text-gray-700 border-1 dark:border-gray-600 text-white-500 rounded-xl shadow-sm focus:outline-none dark:text-white-400 dark:placeholder:text-white-600 dark:bg-gray-700 dark:text-white transition ease-in-out">
                             <option value="">-- Selecciona una opci&oacute;n --</option>
                             @foreach ($grades as $grade)

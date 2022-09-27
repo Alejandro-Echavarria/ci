@@ -29,7 +29,7 @@ class GradesFormEdit extends Component
     public function mount()
     {   
         $this->name = $this->quater['name'];
-        $this->grades = Grade::all();
+        $this->grades = Grade::all()->where('status', 1);
         $this->subjects = Subject::where('quater_id', $this->quater['id'])->get()->toArray();
         $this->subjectsId = Subject::where('quater_id', $this->quater['id'])->pluck('id');
     }
