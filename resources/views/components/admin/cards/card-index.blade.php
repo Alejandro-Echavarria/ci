@@ -7,12 +7,16 @@
     </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
-    @foreach ($records as $record)    
+    @foreach ($records as $record)
+        @php
+            $creditos = 0;
+            $value = 0;
+        @endphp 
         <div class="p-6 rounded-2xl color-primario">
             <div class="mb-5">
                 <div class="flex gap-1">
                     <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{!! $record->name !!}</h5>
-                    <form id="formDelete" class="-mx-4 -my-4 inline-flex ml-auto" method="POST">
+                    <form id="formDelete" class="-my-1 inline-flex ml-auto" method="POST">
                         @csrf
                         @method('delete')
                         <button type="button" class="bg-gray-100 text-gray-500 rounded-full p-1.5 h-8 w-8 hover:bg-red-300 hover:text-red-500 transition-all" data-dismiss-target="#alert" aria-label="Close" onclick="formDelete({{ $record }})">
@@ -27,7 +31,14 @@
                     <ul class="list-inside">
                         @if ($record->subjects->count())
                             @foreach ($record->subjects as $key => $item)
-                                <li class="hover:bg-gray-700 rounded-lg px-3 transition text-gray-300">Materia {!! $key+1 !!}: <span class="ml-3 text-sm font-bold text-white">{!! $item->grade->name !!}</span></li>
+                                <li class="hover:bg-gray-700 rounded-lg px-3 transition text-gray-300">Materia {!! $key+1 !!}: 
+                                    <span class="mx-3 text-sm font-bold text-white">
+                                        {!! $item->grade->name !!}
+                                    </span>
+                                    <span>
+                                        Cr&eacute;ditos: <span class="mx-3 text-sm font-bold text-white"> {!! $item->credits !!}</span>
+                                    </span>
+                                </li>
                             @endforeach
                         @else
                             <li>No exiten calificaciones registradas asasa sasasas </li>
@@ -35,10 +46,24 @@
                     </ul>
                 </div>
             </div>
-            <div>
-                <a href="{{ route('admin.quaters.edit', $record) }}" class="text-white color-secundario focus:outline-none font-medium rounded-xl text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:hover:bg-blue-700 cursor-pointer">
+            <div class="flex justify-between">
+                <a href="{{ route('admin.quaters.edit', $record) }}" class="text-white color-secundario focus:outline-none font-medium rounded-xl text-sm px-5 py-2.5 text-center dark:hover:bg-blue-400 cursor-pointer">
                     Editar
                 </a>
+                @if ($record->subjects->count())
+                    <div class="bg-gradient-to-r from-gray-500 rounded-xl text-center cursor-default">
+                        <span id="ic" class="text-white backdrop-blur-sm bg-black/25 rounded-xl focus:outline-none font-medium text-sm px-5 py-2.5 " title="Indice cuatrimestral">
+                            @foreach ($record->subjects as $key => $item)
+                                @php
+                                    $value += $item->grade->value * $item->credits;
+                                    $creditos += $item->credits;
+                                @endphp
+                            @endforeach
+                            <span class="font-bold">{{ $resultado = $value/$creditos }}</span>
+                        </span>
+                    </div>
+                
+                @endif
             </div>
         </div>
     @endforeach

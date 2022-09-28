@@ -62,6 +62,8 @@ class GradesFormEdit extends Component
 
     public function save()
     {
+        $this->authorize('author', $this->quater);
+        
         $totalQuaters = Quater::all();
            
         if (count($totalQuaters) < 15) {

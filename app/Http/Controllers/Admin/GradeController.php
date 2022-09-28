@@ -32,11 +32,6 @@ class GradeController extends Controller
         return redirect()->route('admin.grades.edit', $grade)->with('info', 'La calificación ('. $grade->name .') se creó con éxito.');
     }
 
-    public function show(Grade $grade)
-    {
-        //
-    }
-
     public function edit(Grade $grade)
     {
         return view('admin.grades.edit', compact('grade'));

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             
             $table->id();
+            $table->tinyInteger('credits')->default('1');
             $table->unsignedBigInteger('quater_id');
             $table->unsignedBigInteger('grade_id');
 

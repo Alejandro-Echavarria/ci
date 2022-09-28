@@ -16,18 +16,15 @@ class QuaterIndex extends Component
 
     public function render()
     {
-        $quaters = Quater::with('subjects.grade')->where('id', 'LIKE', '%'. $this->search . '%')
+        $quaters = Quater::with('subjects.grade')
+                         ->where('id', 'LIKE', '%'. $this->search . '%')
                          ->orWhere('name', 'LIKE', '%'. $this->search . '%')
                          ->orWhere('slug', 'LIKE', '%'. $this->search . '%')
                          ->orWhere('created_at', 'LIKE', '%'. $this->search . '%')
                          ->orWhere('updated_at', 'LIKE', '%'. $this->search . '%')
+                         ->where('user_id', auth()->user()->id)
                          ->get();
 
         return view('livewire.admin.quater-index', compact('quaters'));
-    }
-
-    public function delete($record)
-    {
-        dd($record);
     }
 }

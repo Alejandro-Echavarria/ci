@@ -3,15 +3,15 @@
         $route = 'quaters';
         $records = $quaters;
     @endphp
-    {{-- <button onclick="prueba2()">
-        a
-    </button> --}}
 
+    @if (session('info'))
+        <x-admin.alerts.alerts :message="session('info')" :type="'green-color'" />
+    @endif
     <x-admin.cards.card-index :route="$route" :records="$records" />
     <script>
-        const prueba = async () => {
+        const reloadIndex = async () => {
 
-            let prueba = await @this.render();
+            const render = await @this.render();
         }        
     </script>
 </div>

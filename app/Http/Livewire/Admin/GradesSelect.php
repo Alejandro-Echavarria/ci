@@ -11,16 +11,19 @@ class GradesSelect extends Component
 {
     public $subjects = [];
     public $grades = [];
+    public $credits;
     public $name;
 
     // Validations rules
     protected $rules = [
         'name'       => 'required|min:1|max:60',
-        'subjects.*' => 'required|integer'
+        'subjects.*' => 'required|integer',
+        'credits.*'  => 'required|integer|between:1,5'
     ];
 
     protected $validationAttributes  = [
-        'subjects.*' => ''
+        'subjects.*' => 'materia',
+        'credits.*' => 'crédito'
     ];
 
     public function mount()
@@ -64,12 +67,12 @@ class GradesSelect extends Component
             $quater = Quater::create(['name' => $this->name, 
                                       'slug' => $slug]);
     
-            foreach ($this->subjects as $subject) {
+            foreach ($this->subjects as $key => $subject) {
                 
-                $quater->subjects()->create(['grade_id' => $subject]);
+                $quater->subjects()->create(['credits' => $this->credits[$key], 'grade_id' => $subject]);
             }
     
-            return redirect()->route('admin.quaters.edit', $quater)->with('info', 'El cuatrimestre ('. $quater->name .') se creó con éxito.');
+            return redirect()->route('admin.quaters.index', $quater)->with('info', 'El cuatrimestre ('. $quater->name .') se creó con éxito.');
         }else{
             session()->flash('info', 'El número máximo de cuatrimestres permitidos son 15');
         }

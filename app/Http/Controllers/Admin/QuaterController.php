@@ -25,13 +25,10 @@ class QuaterController extends Controller
         return view('admin.quaters.edit', compact('quater'));
     }
 
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
     public function destroy(Quater $quater)
     {
+        $this->authorize('author', $quater);
+
         $message = '';
         
         if ($quater) {
@@ -40,7 +37,7 @@ class QuaterController extends Controller
 
             if ($request > 0) {
                 
-                $message = response()->json(['status' => true, 'message' => 'datos eliminados']);
+                $message = response()->json(['status' => true, 'message' => 'Registro eliminado']);
             }else {
                 $message = response()->json(['status' => false, 'message' => 'Ocurrió un error']);
             }

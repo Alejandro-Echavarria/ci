@@ -7,6 +7,6 @@ use App\Http\Controllers\Admin\QuaterController;
 
 Route::get('/', [HomeController::class, 'index'])->name('admin.index');
 
-Route::resource('grades', GradeController::class)->names('admin.grades');
+Route::resource('grades', GradeController::class)->except('show')->names('admin.grades');
 
-Route::resource('quaters', QuaterController::class)->except('store', 'show')->names('admin.quaters');
+Route::resource('quaters', QuaterController::class)->except('store', 'show', 'update')->names('admin.quaters');

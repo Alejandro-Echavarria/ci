@@ -31,15 +31,20 @@ const formDelete = async (e) => {
 				method: 'post',
 				body: data
 			})
-				.then(response => response.json())
-				.then(result => {
+			.then(response => response.json())
+			.then(async result => {
 
-					console.log(message = result);
-					prueba2();
+				if (result.status) {
+					
+					reloadPage();
 					
 					const Toast = Swal.mixin({
 						toast: true,
 						position: 'bottom-end',
+						iconColor: 'rgb(61, 61, 61)',
+						customClass: {
+							popup: 'colored-toast'
+						},
 						showConfirmButton: false,
 						timer: 8000,
 						timerProgressBar: true,
@@ -47,52 +52,43 @@ const formDelete = async (e) => {
 							toast.addEventListener('mouseenter', Swal.stopTimer)
 							toast.addEventListener('mouseleave', Swal.resumeTimer)
 						}
-					})
+					});
 
-					Toast.fire({
+					await Toast.fire({
 						icon: 'success',
-						title: 'Signed in successfully'
-					})
-				})
-				.catch(error => {
-					return error;
-				});
+						title: result.message
+					});
+				}else{
+					const Toast = Swal.mixin({
+						toast: true,
+						position: 'bottom-end',
+						iconColor: 'rgb(61, 61, 61)',
+						customClass: {
+							popup: 'colored-toast'
+						},
+						showConfirmButton: false,
+						timer: 8000,
+						timerProgressBar: true,
+						didOpen: (toast) => {
+							toast.addEventListener('mouseenter', Swal.stopTimer)
+							toast.addEventListener('mouseleave', Swal.resumeTimer)
+						}
+					});
 
-			// let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-			// let ajaxUrl = base_url+'/'+controlador+'/update';
-			// let formData = new FormData(form);
-			// request.open("POST",ajaxUrl,true);
-			// request.send(formData);
-
-			// request.onreadystatechange = async () => {
-			// 	if (request.readyState == 4 && request.status == 200) {
-			// 		var objData = JSON.parse(request.responseText);
-			// 		if (objData.status) {
-
-			// 			Swal.fire({
-			// 				icon: objData.icon,
-			// 				title: 'Requisición',
-			// 				text: objData.msg,
-			// 				confirmButtonText: 'Entendido',
-			// 				confirmButtonColor: '#aea322'
-			// 			});
-			// 			// DataTableAc.api().ajax.reload();
-			// 		}else{
-			// 			Swal.fire({
-			// 				icon: 'error',
-			// 				title: 'Error',
-			// 				text: objData.msg,
-			// 				confirmButtonText: 'Entendido',
-			// 				confirmButtonColor: '#aea322'
-			// 			});
-			// 		}
-			// 	}
-			// }
+					await Toast.fire({
+						icon: 'error',
+						title: result.message
+					});
+				}
+			})
+			.catch(error => {
+				return error;
+			});
 		}
 	});
 }
 
-const prueba2 = async () => {
+const reloadPage = async () => {
 
-	await prueba();
+	await reloadIndex();
 }
