@@ -1,12 +1,23 @@
 @props(['route', 'records'])
 
+@php
+    $value_ia = 0;
+    $creditos_ia = 0;
+@endphp 
+
 <div class="mb-8 justify-end">
-    <div class="flex w-full justify-between aling">
+    <div class="flex w-full justify-between">
         <x-admin.buttons.button-index :route="$route" />
-        <x-admin.inputs.search-index />
+        <div class="bg-gradient-to-r from-gray-600 to-blue-700 rounded-xl text-center cursor-default mt-1 p-1 w-full sm:w-auto">
+            <div class="backdrop-blur-sm bg-white/10 rounded-lg focus:outline-none px-5 py-1 h-full">
+                <span id="ic" class="text-white font-medium text-sm" title="Indice cuatrimestral">Indice acumulado:
+                    <span id="ia" class="mx-3 text-sm font-bold text-white"></span>
+                </span>
+            </div>
+        </div>
     </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     @foreach ($records as $record)
         @php
             $creditos = 0;
@@ -47,24 +58,42 @@
                 </div>
             </div>
             <div class="flex justify-between">
-                <a href="{{ route('admin.quaters.edit', $record) }}" class="text-white color-secundario focus:outline-none font-medium rounded-xl text-sm px-5 py-2.5 text-center dark:hover:bg-blue-400 cursor-pointer">
+                <a href="{{ route('admin.quaters.edit', $record) }}" class="text-white color-secundario focus:outline-none font-medium rounded-xl text-sm px-5 py-2.5 text-center dark:hover:bg-blue-700 cursor-pointer">
                     Editar
                 </a>
                 @if ($record->subjects->count())
-                    <div class="bg-gradient-to-r from-gray-500 rounded-xl text-center cursor-default">
-                        <span id="ic" class="text-white backdrop-blur-sm bg-black/25 rounded-xl focus:outline-none font-medium text-sm px-5 py-2.5 " title="Indice cuatrimestral">
-                            @foreach ($record->subjects as $key => $item)
+                    <div class="bg-gradient-to-r from-gray-700 to-blue-700 rounded-xl text-center cursor-default p-1" title="Indice cuatrimestral">
+                        <div class="backdrop-blur-sm bg-white/5 rounded-lg focus:outline-none px-5 py-1">
+                            <span id="ic" class="text-white font-medium text-sm">
+                                @foreach ($record->subjects as $key => $item)
+                                    @php
+                                        $value += $item->grade->value * $item->credits;
+                                        $creditos += $item->credits;
+                                    @endphp
+                                @endforeach
                                 @php
-                                    $value += $item->grade->value * $item->credits;
-                                    $creditos += $item->credits;
+                                    $value_ia += $value;
+                                    $creditos_ia += $creditos;
                                 @endphp
-                            @endforeach
-                            <span class="font-bold">{{ $resultado = $value/$creditos }}</span>
-                        </span>
+                                <span class="font-bold">{{ number_format($resultado = $value/$creditos, 2) }}</span>
+                            </span>
+                        </div>
                     </div>
-                
                 @endif
             </div>
         </div>
     @endforeach
 </div>
+
+@section('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+
+            const values = [
+                {'points': <?= json_encode($value_ia) ?>},
+                {'credits': <?= json_encode($creditos_ia) ?>}
+            ];
+            calculateIA(values);
+        });
+    </script>
+@endsection('scripts')

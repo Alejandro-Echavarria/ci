@@ -92,3 +92,19 @@ const reloadPage = async () => {
 
 	await reloadIndex();
 }
+
+const calculateIA = async (records) => {
+
+	if (records[0].points > 0) {
+	
+		let points = records[0].points;
+		let credits = records[1].credits;
+		let result = points/credits;
+	
+		let putValue = document.getElementById('ia');
+		putValue.innerHTML = new Intl.NumberFormat('en-US', { maximumSignificantDigits: 3 }).format(result);
+	}else{
+		let putValue = document.getElementById('ia');
+		putValue.innerHTML = 0;
+	}
+}

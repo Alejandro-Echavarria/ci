@@ -57,9 +57,9 @@ class GradesSelect extends Component
 
     public function save()
     {
-        $totalQuaters = Quater::all();
+        $totalQuaters = Quater::where('user_id', auth()->user()->id)->get();
            
-        if (count($totalQuaters) < 15) {
+        if (count($totalQuaters) <= 15) {
             
             $this->validate();
             $slug = Str::slug($this->name);
@@ -72,7 +72,7 @@ class GradesSelect extends Component
                 $quater->subjects()->create(['credits' => $this->credits[$key], 'grade_id' => $subject]);
             }
     
-            return redirect()->route('admin.quaters.index', $quater)->with('info', 'El cuatrimestre ('. $quater->name .') se creó con éxito.');
+            return redirect()->route('admin.quaters.index')->with('info', 'El cuatrimestre ('. $quater->name .') se creó con éxito.');
         }else{
             session()->flash('info', 'El número máximo de cuatrimestres permitidos son 15');
         }

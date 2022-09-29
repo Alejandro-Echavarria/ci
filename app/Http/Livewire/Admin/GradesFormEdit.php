@@ -61,12 +61,10 @@ class GradesFormEdit extends Component
     }
 
     public function save()
-    {
-        $this->authorize('author', $this->quater);
-        
-        $totalQuaters = Quater::all();
+    {        
+        $totalQuaters = Quater::where('user_id', auth()->user()->id)->get();
            
-        if (count($totalQuaters) < 15) {
+        if (count($totalQuaters) <= 15) {
             
             $this->validate();
             $slug = Str::slug($this->name);

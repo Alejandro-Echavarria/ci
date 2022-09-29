@@ -22,6 +22,8 @@ class QuaterController extends Controller
 
     public function edit(Quater $quater)
     {
+        $this->authorize('author', $quater);
+
         return view('admin.quaters.edit', compact('quater'));
     }
 
