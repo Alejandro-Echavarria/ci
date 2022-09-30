@@ -1,11 +1,10 @@
 <div>
     @php
-        $route = 'grades';
-        $records = $grades;
+        $route = 'colleges';
+        $records = $colleges;
 
         $tableHeaders = [
-            'Calificaci&oacute;n',
-            'Valor',
+            'Name',
             'Estado',
             'Creado',
             'Actualizado',
@@ -14,7 +13,6 @@
 
         $tableBody = [
             'name',
-            'value',
             'status',
             'created_at',
             'updated_at'

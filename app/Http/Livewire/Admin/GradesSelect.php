@@ -11,14 +11,14 @@ class GradesSelect extends Component
 {
     public $subjects = [];
     public $grades = [];
-    public $credits;
+    public $credits = [];
     public $name;
 
     // Validations rules
     protected $rules = [
         'name'       => 'required|min:1|max:60',
         'subjects.*' => 'required|integer',
-        'credits.*'  => 'required|integer|between:1,5'
+        'credits.*'  => 'required|integer|between:0,6'
     ];
 
     protected $validationAttributes  = [
@@ -32,6 +32,9 @@ class GradesSelect extends Component
         $this->subjects = [
             [],
         ];
+        $this->credits = [
+            [],
+        ];
     }
 
     public function addSubject()
@@ -39,6 +42,7 @@ class GradesSelect extends Component
         if (count($this->subjects) < 15) {
             
             $this->subjects[] = [];
+            $this->credits[] = [];
         }else{
             session()->flash('info', 'El número máximo de materias son 15 por período');
         }
@@ -57,18 +61,20 @@ class GradesSelect extends Component
 
     public function save()
     {
+        $this->validate();
+        
         $totalQuaters = Quater::where('user_id', auth()->user()->id)->get();
            
         if (count($totalQuaters) <= 15) {
             
-            $this->validate();
+            
             $slug = Str::slug($this->name);
     
             $quater = Quater::create(['name' => $this->name, 
                                       'slug' => $slug]);
     
             foreach ($this->subjects as $key => $subject) {
-                
+                    
                 $quater->subjects()->create(['credits' => $this->credits[$key], 'grade_id' => $subject]);
             }
     

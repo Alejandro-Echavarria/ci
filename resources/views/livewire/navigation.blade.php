@@ -16,26 +16,32 @@
                     {{-- Menu lg --}}
                     <div class="hidden md:block relative ml-10 ">
                         <div class="items-baseline">
-                            <a href="{{ route('home.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm">Inicio</a>
+                            <a href="{{ route('home.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Inicio</a>
                             {!!request()->routeIs('home.index') ? $decorador : ""!!}
                         </div>
                     </div>
                     @auth
                         <div class="hidden md:block relative">
                             <div class="items-baseline">
-                                <a href="{{ route('admin.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm">Dashboard</a>
+                                <a href="{{ route('admin.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Dashboard</a>
                                 {!!request()->routeIs('admin.index') ? $decorador : ""!!}
                             </div>
                         </div>
                         <div class="hidden md:block relative">
                             <div class="items-baseline">
-                                <a href="{{ route('admin.grades.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm">Calificaciones</a>
+                                <a href="{{ route('admin.grades.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Calificaciones</a>
                                 {!!request()->routeIs('admin.grades*') ? $decorador : ""!!}
                             </div>
                         </div>
                         <div class="hidden md:block relative">
                             <div class="items-baseline">
-                                <a href="{{ route('admin.quaters.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm">Cuatrimestres</a>
+                                <a href="{{ route('admin.colleges.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Universidades</a>
+                                {!!request()->routeIs('admin.colleges*') ? $decorador : ""!!}
+                            </div>
+                        </div>
+                        <div class="hidden md:block relative">
+                            <div class="items-baseline">
+                                <a href="{{ route('admin.quaters.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Cuatrimestres</a>
                                 {!!request()->routeIs('admin.quaters*') ? $decorador : ""!!}
                             </div>
                         </div>
@@ -79,10 +85,10 @@
                                 </div>
                             </div>
                         @else
-                            <a href="{{ route('login') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm font-medium">
+                            <a href="{{ route('login') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">
                                 Login
                             </a>
-                            <a href="{{ route('register') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm font-medium">
+                            <a href="{{ route('register') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">
                                 Register
                             </a>
                         @endauth
@@ -140,16 +146,16 @@
                 </div>
                 <div class="mt-3">
                     <div class="px-4 pt-2 space-y-1 relative">
-                        <a href="{{ route('profile.show') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base">Perfil</a>
+                        <a href="{{ route('profile.show') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Perfil</a>
                         {!!request()->routeIs('profile.show') ? $decoradorVertical : ""!!}
                     </div>
                     <div class="px-4 pt-2 space-y-1 relative">
-                        <a href="{{ route('admin.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base">Dashboard</a>
+                        <a href="{{ route('admin.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Dashboard</a>
                     </div>
                     <div class="px-4 pt-2 space-y-1 relative">
                         <form method="POST" action="{{ route('logout') }}" x-data>
                             @csrf   
-                            <a href="{{ route('logout') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base" @click.prevent="$root.submit();">
+                            <a href="{{ route('logout') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out" @click.prevent="$root.submit();">
                                 Cerrar sesión
                             </a>
                         </form>
@@ -158,8 +164,8 @@
             </div>
         @else
             <div class="px-4 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-700">
-                <a href="{{ route('login') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base">Login</a>
-                <a href="{{ route('register') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base">Register</a>
+                <a href="{{ route('login') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Login</a>
+                <a href="{{ route('register') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Register</a>
             </div>
         @endauth
     </div>

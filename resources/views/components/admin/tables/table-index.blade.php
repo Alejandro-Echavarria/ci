@@ -1,4 +1,4 @@
-@props(['route', 'records', 'tableheaders'])
+@props(['route', 'records', 'tableheaders', 'tablebody'])
 
 <div class="mb-8 justify-end">
     <div class="flex w-full justify-between aling">
@@ -16,32 +16,36 @@
             </tr>
         </thead>
         <tbody>
-        @if ($records->count())
-            @foreach ($records as $record)
-                <tr class="border-b color-primario border-gray-700 hover:bg-gray-700 transition">
-                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{$record->name}}
-                    </th>
-                    <td class="py-4 px-6">
-                        {{$record->value}}
-                    </td>
-                    <td class="py-4 px-6">
-                        @if ($record->status === '1')
-                            <span class="rounded-full green-color text-xs px-2 font-bold">Activo</span>
-                        @else
-                            <span class="rounded-full red-color text-xs px-2 font-bold">Inactivo</span>
-                        @endif
-                    </td>
-                    <td class="py-4 px-6">
-                        {{$record->created_at}}
-                    </td>
-                    <td class="py-4 px-6">
-                        {{$record->updated_at}}
-                    </td>
-                    <td class="py-4 px-6">
-                        <a href="{{ route('admin.'. $route .'.edit', $record) }}" class="font-medium text-blue-500 hover:underline">Editar</a>
-                    </td>
-                </tr>
+        @if (count($records))
+            @foreach ($records as $key => $record)
+                @if ($record->status !== '0')
+                    <tr class="border-b color-primario border-gray-700 hover:bg-gray-700 transition">
+                        @foreach ($tablebody as $key => $item)
+                            @if ('status' === $tablebody[$key])
+                                <td class="py-4 px-6">
+                                    @if ($record[$tablebody[$key]] == '1')
+                                        <span class="rounded-full green-color text-xs px-2 font-bold">Activo</span>
+                                    @else
+                                        <span class="rounded-full red-color text-xs px-2 font-bold">Inactivo</span>
+                                    @endif
+                                </td>
+                            @else
+                                @if ($key === 0)    
+                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{$record[$tablebody[$key]]}}
+                                    </th>
+                                @else
+                                    <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{$record[$tablebody[$key]]}}
+                                    </td>
+                                @endif
+                            @endif
+                        @endforeach
+                        <td class="py-4 px-6">
+                            <a href="{{ route('admin.'. $route .'.edit', $record) }}" class="font-medium text-blue-500 hover:underline">Editar</a>
+                        </td>
+                    </tr>
+                @endif
             @endforeach
             @else
             <tr class="border-b color-primario border-gray-700">

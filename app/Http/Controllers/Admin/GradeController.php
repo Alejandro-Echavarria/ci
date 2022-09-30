@@ -12,10 +12,8 @@ use App\Http\Requests\Admin\GradeRequest;
 class GradeController extends Controller
 {
     public function index()
-    {
-        $grades = Grade::all()->where('status !=', 0);
-        
-        return view('admin.grades.index', compact('grades'));
+    {        
+        return view('admin.grades.index');
     }
 
     public function create()

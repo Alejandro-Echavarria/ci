@@ -36,19 +36,18 @@
                         @endforeach
                     </select>
                     <input
-                        wire:model="credits.{!!$key!!}"
+                        wire:model="credits.{{$key}}"
                         type="number"
-                        id="credits[{{$key}}]" name="credits[{{$key}}]"
-                        class="prevenir-envio w-1/3 p-2.5 text-sm text-gray-700 border-1 text-white-500 rounded-xl shadow-sm border-1 dark:border-gray-600 focus:outline-none dark:text-white-400 dark:placeholder:text-gray-400 dark:bg-gray-700 dark:text-white transition ease-in-out {{($errors->has('credits.'.$key) ? ' border-red-400 text-red-900 placeholder-red-700 focus:ring-red-500  focus:border-red-500 dark:text-red-500 dark:placeholder-red-500' : null)}}"
-                        value="{{ old('credits.'.$key) }}"
+                        class="prevenir-envio w-1/3 p-2.5 text-sm text-gray-700 border-1 text-white-500 rounded-xl shadow-sm border-1 focus:outline-none dark:text-white-400 dark:placeholder:text-gray-400 dark:bg-gray-700 dark:text-white transition ease-in-out {{($errors->has('credits.'.$key) ? ' border-red-400 text-red-900 placeholder-red-700 focus:ring-red-500  focus:border-red-500 dark:text-red-500 dark:placeholder-red-500' : null)}}"
+                        value="0"
                         placeholder="Créditos" 
                         required 
                     >
 
                     @if ($key === 0)
-                        <button type="button" class="text-white color-secundario focus:outline-none font-medium rounded-xl text-sm w-auto sm:w-auto px-5 py-2.5 text-center cursor-pointer dark:hover:bg-blue-700" wire:click.prevent="addSubject">+</button>
+                        <button type="button" class="text-white color-secundario focus:outline-none font-medium rounded-xl text-sm w-auto sm:w-auto px-5 py-2.5 text-center cursor-pointer dark:hover:bg-blue-700 transition ease-in-out" wire:click.prevent="addSubject">+</button>
                     @else
-                        <button type="button" class="text-white focus:outline-none font-medium rounded-xl text-sm w-auto sm:w-auto px-5 py-2.5 text-center red-color cursor-pointer dark:hover:bg-red-300" wire:click.prevent="removeSubject({{ $key }})">-</button>
+                        <button type="button" class="text-white focus:outline-none font-medium rounded-xl text-sm w-auto sm:w-auto px-5 py-2.5 text-center red-color cursor-pointer dark:hover:bg-red-300 transition ease-in-out" wire:click.prevent="removeSubject({{ $key }})">-</button>
                     @endif           
                 </div>
                 @error('credits.'. $key)

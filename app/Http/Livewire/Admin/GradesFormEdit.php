@@ -12,18 +12,21 @@ class GradesFormEdit extends Component
 {
     public $subjects = [[]];
     public $subjectsId;
-    public $grades;
+    public $grades = [];
+    public $credits = [];
     public $quater;
     public $name;
 
     // Validations rules
     protected $rules = [
-        'name'       => 'required|min:1|max:60',
-        'subjects.*' => 'required|integer'
+        'name'                => 'required|min:1|max:60',
+        'subjects.*.grade_id' => 'required|integer',
+        'credits.*.credits'   => 'required|integer|between:0,6'
     ];
 
     protected $validationAttributes  = [
-        'subjects.*' => ''
+        'subjects.*.grade_id' => 'materia',
+        'credits.*.credits' => 'crédito'
     ];
 
     public function mount()
@@ -31,6 +34,7 @@ class GradesFormEdit extends Component
         $this->name = $this->quater['name'];
         $this->grades = Grade::all()->where('status', 1);
         $this->subjects = Subject::where('quater_id', $this->quater['id'])->get()->toArray();
+        $this->credits = $this->subjects;
         $this->subjectsId = Subject::where('quater_id', $this->quater['id'])->pluck('id');
     }
 
@@ -61,12 +65,13 @@ class GradesFormEdit extends Component
     }
 
     public function save()
-    {        
+    {
+        $this->validate();
+
         $totalQuaters = Quater::where('user_id', auth()->user()->id)->get();
            
         if (count($totalQuaters) <= 15) {
             
-            $this->validate();
             $slug = Str::slug($this->name);
 
             $quater = $this->quater;
@@ -76,7 +81,7 @@ class GradesFormEdit extends Component
     
             foreach ($this->subjects as $key => $subject) {
                 
-                $quater->subjects()->where('id', $this->subjectsId[$key])->update(['grade_id' => $subject]);
+                $quater->subjects()->where('id', $this->subjectsId[$key])->update(['credits' => $this->credits[$key]['credits'], 'grade_id' => $subject['grade_id']]);
                 $quater->touch();
             }
             
