@@ -16,27 +16,63 @@
                     {{-- Menu lg --}}
                     <div class="hidden md:block relative ml-10 ">
                         <div class="items-baseline">
-                            <a href="{{ route('home.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Inicio</a>
+                            <a 
+                                href="{{ route('home.index') }}" 
+                                class="text-gray-{!!request()->routeIs('home.index') ? "100" : "400"!!} hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Inicio</a>
                             {!!request()->routeIs('home.index') ? $decorador : ""!!}
                         </div>
                     </div>
                     @auth
                         <div class="hidden md:block relative">
                             <div class="items-baseline">
-                                <a href="{{ route('admin.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Dashboard</a>
+                                <a href="{{ route('admin.index') }}" class="text-gray-{!!request()->routeIs('admin.index') ? "100" : "400"!!} px-3 py-2 rounded-2xl text-sm transition ease-in-out">Dashboard</a>
                                 {!!request()->routeIs('admin.index') ? $decorador : ""!!}
                             </div>
                         </div>
-                        <div class="hidden md:block relative">
+                        {{-- Trabajando --}}
+                        {{-- menu --}}
+                        <div class="hidden md:block relative rounded-2xl text-sm ease-in-out w-full px-3 cursor-pointer" x-data="{ open: false }">
                             <div class="items-baseline">
-                                <a href="{{ route('admin.grades.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Calificaciones</a>
-                                {!!request()->routeIs('admin.grades*') ? $decorador : ""!!}
+                                <span x-on:click="open = ! open"
+                                    class=" text-gray-50"
+                                    id="configuration-menu-button" 
+                                    aria-expanded="false" 
+                                    aria-haspopup="true">
+                                    <span class="sr-only">Open configuration menu</span>
+                                    <span class="flex">
+                                        <span>
+                                            Configuraci&oacute;n
+                                        </span>
+                                        <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                    </span>
+                                </span>
+                                {!!request()->routeIs('admin.grades*') || request()->routeIs('admin.colleges*') ? $decorador : ""!!}
                             </div>
-                        </div>
-                        <div class="hidden md:block relative">
-                            <div class="items-baseline">
-                                <a href="{{ route('admin.colleges.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Universidades</a>
-                                {!!request()->routeIs('admin.colleges*') ? $decorador : ""!!}
+                            <div x-show="open" x-on:click.away="open = false" x-transition:enter.duration.200ms x-transition:leave.duration.200ms style="display: none;" class="origin-top-right absolute right-0 mt-2 w-48 rounded-2xl shadow-sm bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
+                                tabindex="-1">
+                                
+                                <a href="{{ route('admin.grades.index') }}" class="block px-4 m-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="999"
+                                    id="user-menu-item-0">Calificaciones
+                                </a>
+                                <a href="{{ route('admin.colleges.index') }}" class="block px-4 m-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="999"
+                                    id="user-menu-item-0">Universidades
+                                </a>
+
+                                {{-- end menu --}}
+                                {{-- <div class="hidden md:block relative">
+                                    <div class="items-baseline">
+                                        <a href="{{ route('admin.grades.index') }}" class="block text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-lg text-sm transition ease-in-out">Calificaciones</a>
+                                        {!!request()->routeIs('admin.grades*') ? $decorador : ""!!}
+                                    </div>
+                                </div>
+                                <div class="hidden md:block relative">
+                                    <div class="items-baseline">
+                                        <a href="{{ route('admin.colleges.index') }}" class="block text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-lg text-sm transition ease-in-out">Universidades</a>
+                                        {!!request()->routeIs('admin.colleges*') ? $decorador : ""!!}
+                                    </div>
+                                </div> --}}
+                                {{-- End Trabajando --}}
                             </div>
                         </div>
                         <div class="hidden md:block relative">

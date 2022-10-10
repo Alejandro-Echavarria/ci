@@ -4,27 +4,20 @@
             'name'           => 'Nombre',
             'name-attribute' => 'name',
             'type'           => 'text',
-            'placeholder'    => 'Elige una letra (A, B, C ...)',
-            'required'       => 'required'
-        ],
-        [   
-            'name'           => 'Valor',
-            'name-attribute' => 'value',
-            'type'           => 'number',
-            'placeholder'    => 'Elige un valor para esta calificaci&oacute;n',
+            'placeholder'    => 'Nombre de la universidad',
             'required'       => 'required'
         ]
     ];
     $class = ['col' => '2'];
-    $route = 'grades';
-    $record = $grade;
+    $route = 'colleges';
+    $record = $college;
 @endphp
 
 <x-app-layout>
     <div class="py-6">
         <div class="container">
             <div class="p-2">
-                <h1 class="text-3xl text-gray-700 font-bold pb-6">Calificaciones</h1>
+                <h1 class="text-3xl text-gray-700 font-bold pb-6">Universidades</h1>
                 <p class="text-sm text-gray-500">Editando: <span class="font-bold">{{ $record->name }}</span></p>
                 <p class="text-sm text-gray-500">&Uacute;ltima modificaci&oacute;n: <span class="font-bold">{{ $record->updated_at }}</span></p>
                 @if (session('info'))
