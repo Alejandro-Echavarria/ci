@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class QuaterIndex extends Component
 {
-
     public function render()
     {
         $quaters = Quater::with('subjects.grade')

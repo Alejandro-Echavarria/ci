@@ -9,8 +9,17 @@ use Illuminate\Support\Str;
 
 // Import the validations file
 use App\Http\Requests\Admin\CollegeRequest;
+
 class CollegeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.colleges.index')->only('index');
+        $this->middleware('can:admin.colleges.create')->only('create', 'store');
+        $this->middleware('can:admin.colleges.edit')->only('edit', 'update');
+        $this->middleware('can:admin.colleges.destroy')->only('destroy');
+    }
+
     public function index()
     {
         return view('admin.colleges.index');

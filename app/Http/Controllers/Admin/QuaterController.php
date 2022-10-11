@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\QuaterRequest;
 use App\Models\Quater;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class QuaterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.quaters.index')->only('index');
+        $this->middleware('can:admin.quaters.create')->only('create');
+        $this->middleware('can:admin.quaters.edit')->only('edit');
+        $this->middleware('can:admin.quaters.destroy')->only('destroy');
+    }
+    
     public function index()
     {
         return view('admin.quaters.index');

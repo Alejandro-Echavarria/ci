@@ -48,11 +48,11 @@
                 @endif
             @endforeach
             @else
-            <tr class="border-b color-primario border-gray-700">
-                <td colspan="6" class="py-4 px-6 sm:text-center text-red-400">
-                    No existe ning&uacute;n registro...
-                </td>
-            </tr>
+                <tr class="border-b color-primario border-gray-700">
+                    <td colspan="6" class="py-4 px-6 sm:text-center text-red-400">
+                        No existe ning&uacute;n registro...
+                    </td>
+                </tr>
             @endif
         </tbody>
     </table>

@@ -18,69 +18,61 @@
                         <div class="items-baseline">
                             <a 
                                 href="{{ route('home.index') }}" 
-                                class="text-gray-{!!request()->routeIs('home.index') ? "100" : "400"!!} hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Inicio</a>
+                                class="text-gray-{!!request()->routeIs('home.index') ? "100" : "300"!!} hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm transition ease-in-out">Inicio</a>
                             {!!request()->routeIs('home.index') ? $decorador : ""!!}
                         </div>
                     </div>
                     @auth
                         <div class="hidden md:block relative">
                             <div class="items-baseline">
-                                <a href="{{ route('admin.index') }}" class="text-gray-{!!request()->routeIs('admin.index') ? "100" : "400"!!} px-3 py-2 rounded-2xl text-sm transition ease-in-out">Dashboard</a>
+                                <a 
+                                    href="{{ route('admin.index') }}" 
+                                    class="text-gray-{!!request()->routeIs('admin.index') ? "100" : "300"!!} hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm transition ease-in-out">Dashboard</a>
                                 {!!request()->routeIs('admin.index') ? $decorador : ""!!}
                             </div>
                         </div>
-                        {{-- Trabajando --}}
-                        {{-- menu --}}
-                        <div class="hidden md:block relative rounded-2xl text-sm ease-in-out w-full px-3 cursor-pointer" x-data="{ open: false }">
-                            <div class="items-baseline">
-                                <span x-on:click="open = ! open"
-                                    class=" text-gray-50"
-                                    id="configuration-menu-button" 
-                                    aria-expanded="false" 
-                                    aria-haspopup="true">
-                                    <span class="sr-only">Open configuration menu</span>
-                                    <span class="flex">
-                                        <span>
-                                            Configuraci&oacute;n
+                        @can('admin.colleges.index', 'admin.grades.index')  
+                            <div class="hidden md:block relative rounded-2xl  text-sm w-full px-3 cursor-pointer" x-data="{ open: false }">
+                                <div class="items-baseline">
+                                    <span x-on:click="open = ! open"
+                                        class="text-gray-{!!request()->routeIs('admin.grades*') || request()->routeIs('admin.colleges*') ? "100" : "300"!!} hover:text-white font-semibold transition ease-in-out"
+                                        id="configuration-menu-button" 
+                                        aria-expanded="false" 
+                                        aria-haspopup="true">
+                                        <span class="sr-only">Open configuration menu</span>
+                                        <span class="flex">
+                                            <span>
+                                                Configuraci&oacute;n
+                                            </span>
+                                            <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                         </span>
-                                        <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                     </span>
-                                </span>
-                                {!!request()->routeIs('admin.grades*') || request()->routeIs('admin.colleges*') ? $decorador : ""!!}
-                            </div>
-                            <div x-show="open" x-on:click.away="open = false" x-transition:enter.duration.200ms x-transition:leave.duration.200ms style="display: none;" class="origin-top-right absolute right-0 mt-2 w-48 rounded-2xl shadow-sm bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
-                                tabindex="-1">
-                                
-                                <a href="{{ route('admin.grades.index') }}" class="block px-4 m-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="999"
-                                    id="user-menu-item-0">Calificaciones
-                                </a>
-                                <a href="{{ route('admin.colleges.index') }}" class="block px-4 m-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="999"
-                                    id="user-menu-item-0">Universidades
-                                </a>
-
-                                {{-- end menu --}}
-                                {{-- <div class="hidden md:block relative">
-                                    <div class="items-baseline">
-                                        <a href="{{ route('admin.grades.index') }}" class="block text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-lg text-sm transition ease-in-out">Calificaciones</a>
-                                        {!!request()->routeIs('admin.grades*') ? $decorador : ""!!}
-                                    </div>
+                                    {!!request()->routeIs('admin.grades*') || request()->routeIs('admin.colleges*') ? $decorador : ""!!}
                                 </div>
-                                <div class="hidden md:block relative">
-                                    <div class="items-baseline">
-                                        <a href="{{ route('admin.colleges.index') }}" class="block text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-lg text-sm transition ease-in-out">Universidades</a>
-                                        {!!request()->routeIs('admin.colleges*') ? $decorador : ""!!}
-                                    </div>
-                                </div> --}}
-                                {{-- End Trabajando --}}
+                                <div x-show="open" x-on:click.away="open = false" x-transition:enter.duration.200ms x-transition:leave.duration.200ms style="display: none;" class="origin-top-right absolute right-0 mt-2 w-48 rounded-2xl shadow-sm bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
+                                    tabindex="-1">
+                                    @can('admin.colleges.index')
+                                        <a href="{{ route('admin.colleges.index') }}" class="block px-4 m-2 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 rounded-lg {!! request()->routeIs('admin.colleges*') ? "bg-gray-100" : "" !!}" role="menuitem" tabindex="999"
+                                            id="user-menu-item-0">Universidades
+                                        </a>
+                                    @endcan
+                                    @can('admin.grades.index')    
+                                        <a href="{{ route('admin.grades.index') }}" class="block px-4 m-2 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 rounded-lg {!! request()->routeIs('admin.grades*') ? "bg-gray-100" : "" !!}" role="menuitem" tabindex="999"
+                                            id="user-menu-item-0">Calificaciones
+                                        </a>
+                                    @endcan
+                                </div>
                             </div>
-                        </div>
-                        <div class="hidden md:block relative">
-                            <div class="items-baseline">
-                                <a href="{{ route('admin.quaters.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">Cuatrimestres</a>
-                                {!!request()->routeIs('admin.quaters*') ? $decorador : ""!!}
+                        @endcan
+                        @can('admin.quaters.index')    
+                            <div class="hidden md:block relative">
+                                <div class="items-baseline">
+                                    <a href="{{ route('admin.quaters.index') }}" class="text-gray-{!!request()->routeIs('admin.quaters*') ? "100" : "300"!!} hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm transition ease-in-out">Cuatrimestres</a>
+                                    {!!request()->routeIs('admin.quaters*') ? $decorador : ""!!}
+                                </div>
                             </div>
-                        </div>
+                        @endcan
                     @endauth
                 </div>
                 <div class="hidden md:block">
@@ -102,7 +94,7 @@
                                     role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                     tabindex="-1">
                                     
-                                    <a href="{{ route('profile.show') }}" class="block px-4 m-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="-1"
+                                    <a href="{{ route('profile.show') }}" class="block px-4 m-2 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 {!! request()->routeIs('profile.show') ? "bg-gray-100" : "" !!} rounded-lg" role="menuitem" tabindex="-1"
                                         id="user-menu-item-0">Perfil
                                     </a>
                                     
@@ -114,17 +106,17 @@
     
                                     <form method="POST" action="{{ route('logout') }}" x-data>
                                         @csrf    
-                                        <a href="{{ route('logout') }}" class="block px-4 m-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="-1" id="user-menu-item-2" @click.prevent="$root.submit();">
+                                        <a href="{{ route('logout') }}" class="block px-4 m-2 py-2 text-sm text-gray-700 font-semibold hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="-1" id="user-menu-item-2" @click.prevent="$root.submit();">
                                             Cerrar sesión
                                         </a>
                                     </form>
                                 </div>
                             </div>
                         @else
-                            <a href="{{ route('login') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">
+                            <a href="{{ route('login') }}" class="text-gray-300 hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm transition ease-in-out">
                                 Login
                             </a>
-                            <a href="{{ route('register') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-2xl text-sm transition ease-in-out">
+                            <a href="{{ route('register') }}" class="text-gray-300 hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm transition ease-in-out">
                                 Register
                             </a>
                         @endauth
@@ -138,20 +130,10 @@
                     class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                     aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
-                    <!--
-                        Heroicon name: outline/menu
-        
-                        Menu open: "hidden", Menu closed: "block"
-                    -->
                     <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="2" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                    <!--
-                        Heroicon name: outline/x
-        
-                        Menu open: "block", Menu closed: "hidden"
-                    -->
                     <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke-width="2" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
