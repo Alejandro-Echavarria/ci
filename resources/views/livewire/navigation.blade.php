@@ -8,8 +8,14 @@
         <div class="flex items-center h-16">
             {{-- logotipo --}}
             <a href="/" class="flex-shrink-0">
-                {{-- <p class="font-bold text-gray-200"><span class="color-logo h-12 w-12">M</span> - dev</p> --}}
-                <img class="w-full" src="{{asset('img/7.svg')}}" alt="Logo representativo">
+                <div class="flex items-center">
+                    {{-- <div>
+                        <img class="w-full" src="{{asset('img/11.svg')}}" alt="Logo representativo">
+                    </div> --}}
+                    <div class="items-center">
+                        <p class="font-bold text-gray-200"><span class="color-logo h-12 w-12">M</span> - dev</p>
+                    </div>
+                </div>
             </a>
             <div class="flex justify-end w-full">
                 <div class="flex items-center">

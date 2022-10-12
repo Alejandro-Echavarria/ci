@@ -7,7 +7,7 @@
 
         <title>{{ config('app.name', 'MaetDev') }}</title>
 
-        <link rel="shortcut icon" href="{{ asset('img/7.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('img/11.ico') }}">
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
         <!-- Scripts -->

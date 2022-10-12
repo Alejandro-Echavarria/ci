@@ -8,7 +8,7 @@
             'required'       => 'required'
         ]
     ];
-    $class = ['col' => '2'];
+    $class = ['col' => '1'];
     $route = 'colleges';
 @endphp
 
