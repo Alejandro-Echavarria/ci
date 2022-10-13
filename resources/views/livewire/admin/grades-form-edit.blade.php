@@ -42,7 +42,7 @@
                             @endforeach
                         </select>
                         <input
-                            wire:model="credits.{{$key}}.credits"
+                            wire:model.defer="credits.{{ $key }}.credits"
                             type="number"
                             class="prevenir-envio w-1/3 p-2.5 text-sm text-gray-700 border-1 text-white-500 rounded-xl shadow-sm border-1 focus:outline-none dark:text-white-400 dark:placeholder:text-gray-400 dark:bg-gray-700 dark:text-white transition ease-in-out {{($errors->has('credits.'.$key.'.credits') ? ' border-red-400 text-red-900 placeholder-red-700 focus:ring-red-500  focus:border-red-500 dark:text-red-500 dark:placeholder-red-500' : null)}}"
                             value=""
