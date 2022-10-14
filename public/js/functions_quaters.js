@@ -108,3 +108,47 @@ const calculateIA = async (records) => {
 		putValue.innerHTML = 0;
 	}
 }
+
+// const calculateQuaters = async () => {
+	
+// 	let value = 0;
+// 	let creditsTotal = 0;
+// 	let resultado = 0;
+
+// 	// const credits = await getDOMElements("credits", "n");
+// 	const credits = document.getElementsByName('credits[]');
+// 	const subjects = document.getElementsByName('subjects[]');
+	
+// 	subjects.forEach( (subject, item) => {
+		
+// 		value += parseInt(subject.value) * parseInt(credits[item].value); // * parseInt(credits[item].value);
+// 		creditsTotal += parseInt(credits[item].value);
+// 	});
+
+// 	const resquestData = await fetch(`${base_url+'/admin/grades/grades'}`, {
+		
+// 		method: 'get'
+// 	})
+// 	.then(response => response.json())
+// 	.then(async result => {
+
+// 		console.log(result);
+// 	});
+
+// 	resultado = value/creditsTotal;
+// 	console.log(resultado);
+
+// }
+
+// const getDOMElements = async (name, q) => {
+
+// 	let getElements;
+
+// 	if (q == "n") {
+
+// 		getElements = document.querySelectorAll(`#${name}`);
+// 	} else {
+// 		getElements = document.querySelector(`#${name}`);
+// 	}
+// 	return getElements;
+// }

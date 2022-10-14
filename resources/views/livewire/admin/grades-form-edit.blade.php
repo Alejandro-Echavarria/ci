@@ -78,6 +78,3 @@
         </button>
     </div>
 </div>
-<script>
-    @json($subjects)
-</script>
