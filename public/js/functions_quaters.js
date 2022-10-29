@@ -109,46 +109,46 @@ const calculateIA = async (records) => {
 	}
 }
 
-// const calculateQuaters = async () => {
+const calculateQuaters = async () => {
 	
-// 	let value = 0;
-// 	let creditsTotal = 0;
-// 	let resultado = 0;
+	let value = 0;
+	let creditsTotal = 0;
+	let resultado = 0;
 
-// 	// const credits = await getDOMElements("credits", "n");
-// 	const credits = document.getElementsByName('credits[]');
-// 	const subjects = document.getElementsByName('subjects[]');
+	// const credits = await getDOMElements("credits", "n");
+	const credits = document.getElementsByName('credits[]');
+	const subjects = document.getElementsByName('subjects[]');
 	
-// 	subjects.forEach( (subject, item) => {
+	subjects.forEach( (subject, item) => {
 		
-// 		value += parseInt(subject.value) * parseInt(credits[item].value); // * parseInt(credits[item].value);
-// 		creditsTotal += parseInt(credits[item].value);
-// 	});
+		value += parseInt(subject.value) * parseInt(credits[item].value); // * parseInt(credits[item].value);
+		creditsTotal += parseInt(credits[item].value);
+	});
 
-// 	const resquestData = await fetch(`${base_url+'/admin/grades/grades'}`, {
+	const resquestData = await fetch(`${base_url+'/admin/calculate'}`, {
 		
-// 		method: 'get'
-// 	})
-// 	.then(response => response.json())
-// 	.then(async result => {
+		method: 'get'
+	})
+	.then(response => response.json())
+	.then(async result => {
 
-// 		console.log(result);
-// 	});
+		console.log(await result);
+	});
 
-// 	resultado = value/creditsTotal;
-// 	console.log(resultado);
+	// resultado = value/creditsTotal;
+	// console.log(resultado);
 
-// }
+}
 
-// const getDOMElements = async (name, q) => {
+const getDOMElements = async (name, q) => {
 
-// 	let getElements;
+	let getElements;
 
-// 	if (q == "n") {
+	if (q == "n") {
 
-// 		getElements = document.querySelectorAll(`#${name}`);
-// 	} else {
-// 		getElements = document.querySelector(`#${name}`);
-// 	}
-// 	return getElements;
-// }
+		getElements = document.querySelectorAll(`#${name}`);
+	} else {
+		getElements = document.querySelector(`#${name}`);
+	}
+	return getElements;
+}

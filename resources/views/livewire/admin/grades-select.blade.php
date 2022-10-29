@@ -29,7 +29,7 @@
                     <div class="flex">
                         <p class="block text-sm font-medium text-gray-900 dark:text-gray-300 place-self-center">Materia&nbsp;-&nbsp;{{ $key+1 }}</p>
                     </div>
-                    <select id="subjects[{{$key}}]" name="subjects[]" wire:model="subjects.{{$key}}" class="w-full p-2.5 text-sm text-gray-700 border-1 dark:border-gray-600 text-white-500 rounded-xl shadow-sm focus:outline-none dark:text-white-400 dark:placeholder:text-white-600 dark:bg-gray-700 dark:text-white transition ease-in-out {{($errors->has('subjects.'.$key) ? ' border-red-400 text-red-900 placeholder-red-700 focus:ring-red-500  focus:border-red-500 dark:text-red-500 dark:placeholder-red-500' : null)}}">
+                    <select id="subjects[{{$key}}]" name="subjects[]" wire:model.defer="subjects.{{$key}}" class="w-full p-2.5 text-sm text-gray-700 border-1 dark:border-gray-600 text-white-500 rounded-xl shadow-sm focus:outline-none dark:text-white-400 dark:placeholder:text-white-600 dark:bg-gray-700 dark:text-white transition ease-in-out {{($errors->has('subjects.'.$key) ? ' border-red-400 text-red-900 placeholder-red-700 focus:ring-red-500  focus:border-red-500 dark:text-red-500 dark:placeholder-red-500' : null)}}">
                         <option value="">-- Selecciona una opci&oacute;n --</option>
                         @foreach ($grades as $grade)
                             <option value="{{ $grade->id }}">{{ $grade->name }}</option>
@@ -70,10 +70,4 @@
             Crear
         </button>
     </div>
-    <div>
-        {{ var_dump($gradePoint) }}
-    </div>
 </div>
-{{-- <script>
-    @json($gradePoint);
-</script> --}}

@@ -13,7 +13,6 @@ class GradesSelect extends Component
     public $grades = [];
     public $credits = [];
     public $name;
-    public $gradePoint;
 
     // Validations rules
     protected $rules = [
@@ -57,7 +56,6 @@ class GradesSelect extends Component
 
     public function render()
     {
-        $this->gradePoint();
         return view('livewire.admin.grades-select');
     }
 
@@ -85,13 +83,5 @@ class GradesSelect extends Component
             session()->flash('info', 'El número máximo de cuatrimestres permitidos son 15');
         }
 
-    }
-
-    public function gradePoint()
-    {
-        foreach ($this->subjects as $key => $subject) {
-            
-            $this->gradePoint = $this->subjects;
-        }
     }
 }
