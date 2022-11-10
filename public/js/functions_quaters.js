@@ -114,6 +114,7 @@ const calculateQuaters = async () => {
 	let value = 0;
 	let creditsTotal = 0;
 	let resultado = 0;
+	let subjectsT = [];
 
 	// const credits = await getDOMElements("credits", "n");
 	const credits = document.getElementsByName('credits[]');
@@ -130,14 +131,31 @@ const calculateQuaters = async () => {
 		method: 'get'
 	})
 	.then(response => response.json())
-	.then(async result => {
+	.then(async results => {
 
-		console.log(await result);
+
+		results.forEach( (result, key) => {
+
+			result.subjects.forEach( (credits, key) => {
+
+				subjectsT.push(credits.grade.value);
+				console.log(credits.grade);
+			});
+			
+			// value += parseInt(result.value) * parseInt(credits[key].value); // * parseInt(credits[item].value);
+			// creditsTotal += parseInt(credits[key].value);
+		});
+
+		console.log(subjectsT);
+
+		// results.forEach( (result, key) => {
+		// 	let subject = result.subjects;
+		// });
+		// console.log(await result[0].subjects[0].grade.value);
+
+
+		// console.log(await results);
 	});
-
-	// resultado = value/creditsTotal;
-	// console.log(resultado);
-
 }
 
 const getDOMElements = async (name, q) => {
