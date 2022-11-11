@@ -109,55 +109,6 @@ const calculateIA = async (records) => {
 	}
 }
 
-const calculateQuaters = async () => {
-	
-	let value = 0;
-	let creditsTotal = 0;
-	let resultado = 0;
-	let subjectsT = [];
-
-	// const credits = await getDOMElements("credits", "n");
-	const credits = document.getElementsByName('credits[]');
-	const subjects = document.getElementsByName('subjects[]');
-	
-	subjects.forEach( (subject, item) => {
-		
-		value += parseInt(subject.value) * parseInt(credits[item].value); // * parseInt(credits[item].value);
-		creditsTotal += parseInt(credits[item].value);
-	});
-
-	const resquestData = await fetch(`${base_url+'/admin/calculate'}`, {
-		
-		method: 'get'
-	})
-	.then(response => response.json())
-	.then(async results => {
-
-
-		results.forEach( (result, key) => {
-
-			result.subjects.forEach( (credits, key) => {
-
-				subjectsT.push(credits.grade.value);
-				console.log(credits.grade);
-			});
-			
-			// value += parseInt(result.value) * parseInt(credits[key].value); // * parseInt(credits[item].value);
-			// creditsTotal += parseInt(credits[key].value);
-		});
-
-		console.log(subjectsT);
-
-		// results.forEach( (result, key) => {
-		// 	let subject = result.subjects;
-		// });
-		// console.log(await result[0].subjects[0].grade.value);
-
-
-		// console.log(await results);
-	});
-}
-
 const getDOMElements = async (name, q) => {
 
 	let getElements;

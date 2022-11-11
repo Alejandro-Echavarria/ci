@@ -11,6 +11,8 @@ Route::get('/', [HomeController::class, 'index'])->name('admin.index');
 
 Route::get('/calculate', [CalculateController::class, 'ic'])->name('admin.ic');
 
+Route::get('/calculate/gradevalue/{grade}', [CalculateController::class, 'gradeValue'])->name('admin.gradeValue');
+
 Route::resource('grades', GradeController::class)->except('show')->names('admin.grades')->middleware('role:Admin');
 
 Route::resource('colleges', CollegeController::class)->except('show')->names('admin.colleges')->middleware('role:Admin');

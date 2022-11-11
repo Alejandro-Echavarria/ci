@@ -9,9 +9,6 @@
             {{-- logotipo --}}
             <a href="/" class="flex-shrink-0">
                 <div class="flex items-center">
-                    {{-- <div>
-                        <img class="w-full" src="{{asset('img/11.svg')}}" alt="Logo representativo">
-                    </div> --}}
                     <div class="items-center">
                         <p class="font-bold text-gray-200"><span class="color-logo h-12 w-12">M</span> - dev</p>
                     </div>
@@ -103,12 +100,6 @@
                                     <a href="{{ route('profile.show') }}" class="block px-4 m-2 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 {!! request()->routeIs('profile.show') ? "bg-gray-100" : "" !!} rounded-lg" role="menuitem" tabindex="-1"
                                         id="user-menu-item-0">Perfil
                                     </a>
-                                    
-                                    {{-- @can('admin.home') --}}
-                                        {{-- <a href="{{ route('admin.index') }}" class="block px-4 m-2 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="-1"
-                                            id="user-menu-item-1">Dashboard
-                                        </a> --}}
-                                    {{-- @endcan --}}
     
                                     <form method="POST" action="{{ route('logout') }}" x-data>
                                         @csrf    
@@ -120,10 +111,10 @@
                             </div>
                         @else
                             <a href="{{ route('login') }}" class="text-gray-300 hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm transition ease-in-out">
-                                Login
+                                Iniciar
                             </a>
                             <a href="{{ route('register') }}" class="text-gray-300 hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm transition ease-in-out">
-                                Register
+                                Registrarse
                             </a>
                         @endauth
                     </div>
@@ -151,10 +142,6 @@
     
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="md:hidden" id="mobile-menu" x-show="open" x-on:click.away="open = false" style="display: none;" x-transition:enter.duration.400ms x-transition:leave.duration.200ms>
-        <div class="px-4 pt-2 pb-3 space-y-1 relative">
-            {{-- <a href="{{route('posts.index')}}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">Inicio</a>
-            {!!request()->routeIs('posts.index') ? $decoradorVertical : ""!!} --}}
-        </div>
         @auth
             <div class="pt-4 pb-3 border-t border-gray-700">
                 <div class="flex items-center px-4">
@@ -170,11 +157,24 @@
                 </div>
                 <div class="mt-3">
                     <div class="px-4 pt-2 space-y-1 relative">
-                        <a href="{{ route('profile.show') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Perfil</a>
-                        {!!request()->routeIs('profile.show') ? $decoradorVertical : ""!!}
+                        <a href="{{ route('admin.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Dashboard</a>
+                        {!!request()->routeIs('admin.index') ? $decoradorVertical : ""!!}
                     </div>
                     <div class="px-4 pt-2 space-y-1 relative">
-                        <a href="{{ route('admin.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Dashboard</a>
+                        <a href="{{ route('admin.quaters.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Cuatrimestres</a>
+                        {!!request()->routeIs('admin.quaters*') ? $decoradorVertical : ""!!}
+                    </div>
+                    <div class="px-4 pt-2 space-y-1 relative">
+                        <a href="{{ route('admin.colleges.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Universidades</a>
+                        {!!request()->routeIs('admin.colleges*') ? $decoradorVertical : ""!!}
+                    </div>
+                    <div class="px-4 pt-2 space-y-1 relative">
+                        <a href="{{ route('admin.grades.index') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Calificaciones</a>
+                        {!!request()->routeIs('admin.grades*') ? $decoradorVertical : ""!!}
+                    </div>
+                    <div class="px-4 pt-2 space-y-1 relative">
+                        <a href="{{ route('profile.show') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Perfil</a>
+                        {!!request()->routeIs('profile.show') ? $decoradorVertical : ""!!}
                     </div>
                     <div class="px-4 pt-2 space-y-1 relative">
                         <form method="POST" action="{{ route('logout') }}" x-data>
@@ -188,8 +188,8 @@
             </div>
         @else
             <div class="px-4 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-700">
-                <a href="{{ route('login') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Login</a>
-                <a href="{{ route('register') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Register</a>
+                <a href="{{ route('login') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Iniciar</a>
+                <a href="{{ route('register') }}" class="text-gray-50 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm transition ease-in-out">Registrarse</a>
             </div>
         @endauth
     </div>
