@@ -13,8 +13,8 @@ Route::get('/calculate', [CalculateController::class, 'ic'])->name('admin.ic');
 
 Route::get('/calculate/gradevalue/{grade}', [CalculateController::class, 'gradeValue'])->name('admin.gradeValue');
 
-Route::resource('grades', GradeController::class)->except('show')->names('admin.grades')->middleware('role:Admin');
+Route::resource('grades', GradeController::class)->except('show')->names('admin.grades')->middleware('role:admin');
 
-Route::resource('colleges', CollegeController::class)->except('show')->names('admin.colleges')->middleware('role:Admin');
+Route::resource('colleges', CollegeController::class)->except('show')->names('admin.colleges')->middleware('role:admin');
 
 Route::resource('quaters', QuaterController::class)->except('store', 'show', 'update')->names('admin.quaters');
