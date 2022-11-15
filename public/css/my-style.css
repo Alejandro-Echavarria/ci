@@ -1,5 +1,5 @@
 body {
-    background-image: url('../img/background3.svg');
+    background-image: url('../img/background.svg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -257,6 +257,13 @@ input[type=number] { -moz-appearance:textfield; }
 }
 
 /* End */
+
+/* For devices 400px and larger: */
+@media only screen and (min-device-width: 540px) {
+    body {
+        background-image: url('../img/background-16.svg');
+    }
+}
 
 @media (max-width: 476px){
     
