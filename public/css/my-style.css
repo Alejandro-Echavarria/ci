@@ -1,8 +1,9 @@
 body {
     background-image: url('../img/background.svg');
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-position: center;
 }
 
 .color-primario {
