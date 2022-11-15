@@ -27,7 +27,7 @@
             <div class="p-6 rounded-2xl color-primario">
                 <div class="mb-5">
                     <div class="flex gap-1">
-                        <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{!! $record->name !!}</h5>
+                        <h5 class="text-2xl font-bold tracking-tighttext-white">{!! $record->name !!}</h5>
                         <form id="formDelete" class="-my-1 inline-flex ml-auto" method="POST">
                             @csrf
                             @method('delete')

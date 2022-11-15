@@ -7,8 +7,8 @@
     </div>
 </div>
 <div class="overflow-x-auto relative rounded-2xl color-primario">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <table class="w-full text-sm text-left">
+        <thead class="text-xsuppercase bg-gray-700 text-gray-100">
             <tr>
                 @foreach ($tableheaders as $tableheader)
                     <th scope="col" class="py-3 px-6">{!! $tableheader !!}</th>
@@ -31,11 +31,11 @@
                                 </td>
                             @else
                                 @if ($key === 0)    
-                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="py-4 px-6 font-medium text-gray-100 whitespace-nowrap">
                                         {{$record[$tablebody[$key]]}}
                                     </th>
                                 @else
-                                    <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <td class="py-4 px-6 font-medium text-gray-100 whitespace-nowrap">
                                         {{$record[$tablebody[$key]]}}
                                     </td>
                                 @endif

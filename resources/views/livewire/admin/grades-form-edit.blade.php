@@ -6,7 +6,7 @@
         <div>
             <label 
                 for="name" 
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                class="block mb-2 text-sm font-medium text-gray-100">
                 Nombre<span class="text-red-500"> *</span>
             </label>
             <input
@@ -14,7 +14,7 @@
                 type="text" 
                 id="name" 
                 name="name" 
-                class="w-full p-2.5 text-sm text-gray-700 border-1 text-white-500 rounded-xl shadow-sm focus:outline-none dark:text-white-400 dark:placeholder:text-gray-400 dark:bg-gray-700 dark:text-white transition ease-in-out {{($errors->has('name') ? ' border-red-400 text-red-900 placeholder-red-700 focus:ring-red-500  focus:border-red-500 dark:text-red-500 dark:placeholder-red-500' : null)}}"
+                class="w-full p-2.5 text-sm text-white border-1 rounded-xl shadow-sm focus:outline-none placeholder:text-gray-400 bg-gray-700 transition ease-in-out {{($errors->has('name') ? ' border-red-400  placeholder-red-700 focus:ring-red-500  focus:border-red-500 text-red-500' : null)}}"
                 value="{{ old('name') }}"
                 placeholder="Elige un nombre" 
                 required 
@@ -31,11 +31,11 @@
                 <div>
                     <div class="flex gap-3">
                         <div class="flex">
-                            <p class="block text-sm font-medium text-gray-900 dark:text-gray-300 place-self-center">Materia&nbsp;-&nbsp;{{ $key+1 }}</p>
+                            <p class="block text-sm font-medium text-gray-100 place-self-center"><span class="hidden-letters">Materia&nbsp;-&nbsp;</span>{{ $key+1 }}</p>
                         </div>
                         <select 
                             wire:model.defer="subjects.{{ $key }}.grade_id"
-                            class="w-full p-2.5 text-sm text-gray-700 border-1 dark:border-gray-600 text-white-500 rounded-xl shadow-sm focus:outline-none dark:text-white-400 dark:placeholder:text-white-600 dark:bg-gray-700 dark:text-white transition ease-in-out {{($errors->has('subjects.'.$key.'.grade_id') ? ' border-red-400 text-red-900 placeholder-red-700 focus:ring-red-500  focus:border-red-500 dark:text-red-500 dark:placeholder-red-500' : null)}}">
+                            class="w-full p-2.5 text-sm text-white border-1 rounded-xl shadow-sm focus:outline-none placeholder:text-gray-400 bg-gray-700 transition ease-in-out {{($errors->has('subjects.'.$key.'.grade_id') ? ' border-red-400  placeholder-red-700 focus:ring-red-500  focus:border-red-500 text-red-500' : null)}}">
                             <option value="">-- Selecciona una opci&oacute;n --</option>
                             @foreach ($grades as $grade)
                                 <option value="{{ $grade->id }}">{{ $grade->name }}</option>
@@ -44,7 +44,7 @@
                         <input
                             wire:model.defer="credits.{{ $key }}.credits"
                             type="number"
-                            class="prevenir-envio w-1/3 p-2.5 text-sm text-gray-700 border-1 text-white-500 rounded-xl shadow-sm border-1 focus:outline-none dark:text-white-400 dark:placeholder:text-gray-400 dark:bg-gray-700 dark:text-white transition ease-in-out {{($errors->has('credits.'.$key.'.credits') ? ' border-red-400 text-red-900 placeholder-red-700 focus:ring-red-500  focus:border-red-500 dark:text-red-500 dark:placeholder-red-500' : null)}}"
+                            class="prevenir-envio w-1/3 p-2.5 text-sm text-white border-1 rounded-xl shadow-sm focus:outline-none placeholder:text-gray-400 bg-gray-700 transition ease-in-out {{($errors->has('credits.'.$key.'.credits') ? ' border-red-400  placeholder-red-700 focus:ring-red-500  focus:border-red-500 text-red-500' : null)}}"
                             value=""
                             placeholder="Créditos" 
                             required 
@@ -60,7 +60,7 @@
                         <small class="text-red-500">{{$message}}</small>
                     @enderror
                     @error('subjects.'. $key .'.grade_id')
-                        <small class="text-red-500">{{$message}}</small>
+                        <small class="text-red-500"> {{$message}}</small>
                     @enderror
                 </div>
             @endforeach
