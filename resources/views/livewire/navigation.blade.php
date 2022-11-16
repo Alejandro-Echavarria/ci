@@ -3,7 +3,7 @@
     $decoradorVertical = '<div class="absolute inset-y-0 top-3"><div class="h-6 border-l-4 border-color-secundario rounded-md"></div></div>';
 @endphp
 
-<nav class="color-primario" x-data="{ open: false }">
+<nav class="backdrop-blur-md bg-black/80 navSticky z-50" x-data="{ open: false }">
     <div class="max-w-full mx-auto px-6 sm:px-6 lg:px-6 xl:px-8 2xl:px-16">
         <div class="flex items-center h-16">
             {{-- logotipo --}}
@@ -124,7 +124,7 @@
             <!-- Mobile menu button -->
             <div class="-mr-2 flex md:hidden">
                 <button x-on:click="open = true" type="button"
-                    class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                    class=" inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                     aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
