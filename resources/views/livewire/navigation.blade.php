@@ -3,7 +3,7 @@
     $decoradorVertical = '<div class="absolute inset-y-0 top-3"><div class="h-6 border-l-4 border-color-secundario rounded-md"></div></div>';
 @endphp
 
-<nav class="backdrop-blur-md bg-black/80 navSticky z-50" x-data="{ open: false }">
+<nav class="backdrop-blur-md bg-black/80 navSticky z-50 sticky top-0" x-data="{ open: false }">
     <div class="max-w-full mx-auto px-6 sm:px-6 lg:px-6 xl:px-8 2xl:px-16">
         <div class="flex items-center h-16">
             {{-- logotipo --}}
