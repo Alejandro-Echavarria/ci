@@ -76,7 +76,7 @@
                                         $value_ia += $value;
                                         $creditos_ia += $creditos;
                                     @endphp
-                                    <span class="font-bold">{{ number_format($resultado = $value/$creditos, 2) }}</span>
+                                    <span class="font-bold">{{ $creditos <= 0 ? $resultado = 0 : number_format($resultado = $value/$creditos, 2) }}</span>
                                 </span>
                             </div>
                         </div>

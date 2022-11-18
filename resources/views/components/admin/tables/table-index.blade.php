@@ -6,9 +6,9 @@
         <x-admin.inputs.search-index />
     </div>
 </div>
-<div class="overflow-x-auto relative rounded-2xl color-primario">
+<div class="overflow-x-auto relative rounded-2xl border">
     <table class="w-full text-sm text-left">
-        <thead class="text-xsuppercase bg-gray-700 text-gray-100">
+        <thead class="backdrop-blur-sm bg-gray-300/20 text-gray-700">
             <tr>
                 @foreach ($tableheaders as $tableheader)
                     <th scope="col" class="py-3 px-6">{!! $tableheader !!}</th>
@@ -19,7 +19,7 @@
         @if (count($records))
             @foreach ($records as $key => $record)
                 @if ($record->status !== '0')
-                    <tr class="border-b color-primario border-gray-700 hover:bg-gray-700 transition">
+                    <tr class="border border-gray-300/20 border-b backdrop-blur-sm bg-white/20 hover:bg-gray-300/20  transition">
                         @foreach ($tablebody as $key => $item)
                             @if ('status' === $tablebody[$key])
                                 <td class="py-4 px-6">
@@ -31,18 +31,18 @@
                                 </td>
                             @else
                                 @if ($key === 0)    
-                                    <th scope="row" class="py-4 px-6 font-medium text-gray-100 whitespace-nowrap">
+                                    <th scope="row" class="py-4 px-6 font-semibold text-gray-700 whitespace-nowrap">
                                         {{$record[$tablebody[$key]]}}
                                     </th>
                                 @else
-                                    <td class="py-4 px-6 font-medium text-gray-100 whitespace-nowrap">
+                                    <td class="py-4 px-6 font-semibold text-gray-700 whitespace-nowrap">
                                         {{$record[$tablebody[$key]]}}
                                     </td>
                                 @endif
                             @endif
                         @endforeach
                         <td class="py-4 px-6">
-                            <a href="{{ route('admin.'. $route .'.edit', $record) }}" class="font-medium text-blue-500 hover:underline">Editar</a>
+                            <a href="{{ route('admin.'. $route .'.edit', $record) }}" class="font-semibold text-blue-500 hover:underline">Editar</a>
                         </td>
                     </tr>
                 @endif

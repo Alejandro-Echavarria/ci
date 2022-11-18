@@ -9,9 +9,9 @@
     <div class="mb-6">
         <label 
             for="status" 
-            class="block mb-2 text-sm font-medium text-gray-100">Estado
+            class="block mb-2 text-base font-bold text-gray-700">Estado
         </label>
-        {!! Form::select('status', $list, null, ['class' => 'w-full p-2.5 text-sm border-1 border-gray-600 text-white-500 rounded-xl shadow-sm focus:outline-none placeholder:text-white-600 bg-gray-700 text-white transition ease-in-out']) !!}
+        {!! Form::select('status', $list, null, ['class' => 'w-full p-2.5 text-sm text-gray-700 border-1 border-gray-300/20 rounded-xl focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 focus:outline-none placeholder:text-gray-500 backdrop-blur-sm bg-gray-300/20 transition ease-in-out']) !!}
         @error('status')
             <small class="text-red-500">{{$message}}</small>
         @enderror
