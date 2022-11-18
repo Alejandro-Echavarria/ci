@@ -8,7 +8,7 @@
                 @if (session('info'))
                     <x-admin.alerts.alerts :message="session('info')" :type="'green-color'" />
                 @endif
-                <div class="color-primario p-5 rounded-2xl mt-6">
+                <div class="border backdrop-blur-sm bg-white/20 p-5 rounded-2xl mt-6">
                     {!! Form::model($quater, ['id' => 'edit-quater', 'class' => 'prevenir-envio'] ) !!}
                         @livewire('admin.grades-form-edit', ['quater' => $quater])
                     {!! Form::close() !!}

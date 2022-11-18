@@ -4,7 +4,7 @@
         $records = $colleges;
 
         $tableHeaders = [
-            'Name',
+            'Nombre',
             'Estado',
             'Creado',
             'Actualizado',

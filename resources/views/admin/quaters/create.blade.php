@@ -3,7 +3,7 @@
         <div class="container">
             <div class="p-2 pb-5">
                 <h1 class="text-3xl text-gray-700 font-bold pb-6">Cuatrimestres</h1>
-                <div class="color-primario p-5 rounded-2xl">
+                <div class="border backdrop-blur-sm bg-white/20 p-5 rounded-2xl">
                     {!! Form::open() !!}
                         @livewire('admin.grades-select')
                     {!! Form::close() !!}
