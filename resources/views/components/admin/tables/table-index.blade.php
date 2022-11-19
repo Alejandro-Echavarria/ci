@@ -7,8 +7,8 @@
     </div>
 </div>
 <div class="overflow-x-auto rounded-2xl border overflow-hidden">
-    <table class="w-full text-sm text-left overflow-hidden">
-        <thead class="backdrop-blur-sm bg-gray-300/20 text-gray-700">
+    <table class="w-full text-sm text-left">
+        <thead class="sm:backdrop-blur-sm bg-gray-300/20 text-gray-700">
             <tr>
                 @foreach ($tableheaders as $tableheader)
                     <th scope="col" class="py-3 px-6">{!! $tableheader !!}</th>
