@@ -8,7 +8,7 @@
 </div>
 <div class="overflow-x-auto relative rounded-2xl border overflow-hidden">
     <table class="w-full text-sm text-left">
-        <thead class="backdrop-blur-sm bg-gray-300/20 text-gray-700">
+        <thead class="backdrop-blur-sm bg-gray-300/20 text-gray-700 rounded-2xl">
             <tr>
                 @foreach ($tableheaders as $tableheader)
                     <th scope="col" class="py-3 px-6">{!! $tableheader !!}</th>
