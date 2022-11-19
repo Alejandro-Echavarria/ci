@@ -6,7 +6,7 @@
         <x-admin.inputs.search-index />
     </div>
 </div>
-<div class="overflow-x-auto relative rounded-2xl border">
+<div class="overflow-x-auto relative rounded-2xl border overflow-hidden">
     <table class="w-full text-sm text-left">
         <thead class="backdrop-blur-sm bg-gray-300/20 text-gray-700">
             <tr>
@@ -19,7 +19,7 @@
         @if (count($records))
             @foreach ($records as $key => $record)
                 @if ($record->status !== '0')
-                    <tr class="border border-gray-300/20 border-b backdrop-blur-sm bg-white/20 hover:bg-gray-300/20  transition">
+                    <tr class="border border-gray-300/20 border-b bg-white hover:bg-gray-300/20  transition">
                         @foreach ($tablebody as $key => $item)
                             @if ('status' === $tablebody[$key])
                                 <td class="py-4 px-6">
@@ -48,7 +48,7 @@
                 @endif
             @endforeach
             @else
-                <tr class="border-b color-primario border-gray-700">
+                <tr class="border-b bg-white border-gray-700">
                     <td colspan="6" class="py-4 px-6 sm:text-center text-red-400">
                         No existe ning&uacute;n registro...
                     </td>
