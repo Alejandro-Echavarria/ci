@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="overflow-x-auto relative rounded-2xl border overflow-hidden">
-    <table class="w-full text-sm text-left">
+    <table class="w-full text-sm text-left overflow-hidden">
         <thead class="backdrop-blur-sm bg-gray-300/20 text-gray-700 rounded-2xl">
             <tr>
                 @foreach ($tableheaders as $tableheader)
