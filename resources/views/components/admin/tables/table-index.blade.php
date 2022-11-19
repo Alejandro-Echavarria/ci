@@ -6,9 +6,9 @@
         <x-admin.inputs.search-index />
     </div>
 </div>
-<div class="overflow-x-auto relative rounded-2xl border overflow-hidden">
+<div class="overflow-x-auto rounded-2xl border overflow-hidden">
     <table class="w-full text-sm text-left overflow-hidden">
-        <thead class="backdrop-blur-sm bg-gray-300/20 text-gray-700 rounded-2xl">
+        <thead class="backdrop-blur-sm bg-gray-300/20 text-gray-700">
             <tr>
                 @foreach ($tableheaders as $tableheader)
                     <th scope="col" class="py-3 px-6">{!! $tableheader !!}</th>
