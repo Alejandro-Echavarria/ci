@@ -28,6 +28,7 @@
                 {{ $slot }}
             </main>
         </div>
+        <x-footers.footer />
         @stack('modals')
         @livewireScripts
         <script src="{{ asset('js/generals_functions.js') }}"></script>
