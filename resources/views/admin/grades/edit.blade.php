@@ -30,7 +30,7 @@
                 @if (session('info'))
                     <x-admin.alerts.alerts :message="session('info')" :type="'green-color'" />
                 @endif
-                <div class="border backdrop-blur-sm bg-white/20 p-5 rounded-2xl mt-6">
+                <div class="border bg-white p-5 rounded-2xl mt-6">
                     {!! Form::model($record, ['route' => ['admin.'. $route .'.update', $record], 'method' => 'put']) !!}
                         <x-admin.forms.form-edit :fields="$fields" :object="$record" :class="$class" />
                         <x-admin.selects.select />

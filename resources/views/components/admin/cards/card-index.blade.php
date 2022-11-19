@@ -24,7 +24,7 @@
                 $creditos = 0;
                 $value = 0;
             @endphp 
-            <div class="p-6 rounded-2xl backdrop-blur-sm bg-white/20 border">
+            <div class="p-6 rounded-2xl bg-white border">
                 <div class="mb-5">
                     <div class="flex gap-1">
                         <h5 class="text-2xl font-bold">{!! $record->name !!}</h5>
@@ -43,7 +43,7 @@
                         <ul class="list-inside">
                             @if ($record->subjects->count())
                                 @foreach ($record->subjects as $key => $item)
-                                    <li class="backdrop-blur-sm hover:bg-gray-300/20 rounded-lg px-3 transition text-gray-700 font-semibold">Materia {!! $key+1 !!}: 
+                                    <li class="hover:bg-gray-300/20 rounded-lg px-3 transition text-gray-700 font-semibold">Materia {!! $key+1 !!}: 
                                         <span class="mx-3 text-sm font-bold text-black">
                                             {!! $item->grade->name !!}
                                         </span>
@@ -59,11 +59,11 @@
                     </div>
                 </div>
                 <div class="flex justify-between">
-                    <a href="{{ route('admin.quaters.edit', $record) }}" class="text-gray-700 backdrop-blur-sm bg-gray-300/20 focus:outline-none font-bold rounded-xl text-sm px-5 py-2.5 text-center hover:bg-gray-300/50 cursor-pointer transition ease-in-out">
+                    <a href="{{ route('admin.quaters.edit', $record) }}" class="text-gray-700 bg-gray-300/20 focus:outline-none font-bold rounded-xl text-sm px-5 py-2.5 text-center hover:bg-gray-300/50 cursor-pointer transition ease-in-out">
                         Editar
                     </a>
                     @if ($record->subjects->count())
-                        <div class="backdrop-blur-sm bg-gray-300/20 hover:bg-gray-300/50 transition rounded-xl text-center cursor-default p-1" title="Indice cuatrimestral">
+                        <div class="bg-gray-300/20 hover:bg-gray-300/50 transition rounded-xl text-center cursor-default p-1" title="Indice cuatrimestral">
                             <div class="rounded-lg focus:outline-none px-5 py-1">
                                 <span id="ic" class="text-gray-800 font-medium text-sm">
                                     @foreach ($record->subjects as $key => $item)
