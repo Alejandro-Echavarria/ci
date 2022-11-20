@@ -16,8 +16,8 @@
     <div class="py-6">
         <div class="container">
             <div class="p-2">
-                <h1 class="text-3xl text-gray-700 font-bold pb-6">Universidades</h1>
-                <div class="border backdrop-blur-sm bg-white/20 p-5 rounded-2xl">
+                <h1 class="text-3xl text-gray-700 dark:text-gray-200 font-bold pb-6">Universidades</h1>
+                <div class="border dark:border-gray-800 p-5 rounded-2xl">
                     {!! Form::open(['route' => 'admin.'. $route .'.store']) !!}
                         <x-admin.forms.form-create :fields="$fields" :class="$class" />
                         <x-admin.selects.select />     

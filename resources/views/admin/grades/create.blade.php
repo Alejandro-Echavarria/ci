@@ -23,8 +23,8 @@
     <div class="py-6">
         <div class="container">
             <div class="p-2">
-                <h1 class="text-3xl text-gray-700 font-bold pb-6">Calificaciones</h1>
-                <div class="border bg-white p-5 rounded-2xl">
+                <h1 class="text-3xl text-gray-700 dark:text-gray-200 font-bold pb-6">Calificaciones</h1>
+                <div class="border dark:border-gray-800 p-5 rounded-2xl">
                     {!! Form::open(['route' => 'admin.grades.store']) !!}
                         <x-admin.forms.form-create :fields="$fields" :class="$class" />
                         <x-admin.selects.select />     

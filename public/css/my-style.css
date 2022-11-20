@@ -1,10 +1,10 @@
-body {
+/* body {
     background-image: url('../img/background.svg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-}
+} */
 
 .color-primario {
     background-color: rgb(31,41,55);
@@ -98,7 +98,7 @@ body {
 
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-    width: 5px;
+    width: 7px;
 }
 
 *::-webkit-scrollbar-track {
@@ -114,22 +114,6 @@ body {
 *::-webkit-scrollbar:horizontal {
     height: 5px;
     width: 5px;
-}
-
-.hoverArticle {
-    transition: all 0.2s ease-out;
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out;
-}
-
-.hoverArticle:hover {
-    transform: translateY(-5px);
-    -webkit-transform: translateY(-5px);
-    -moz-transform: translateY(-5px);
-    -ms-transform: translateY(-5px);
-    -o-transform: translateY(-5px);
 }
 
 /* Button color */
@@ -259,12 +243,12 @@ input[type=number] { -moz-appearance:textfield; }
 
 /* End */
 
-/* For devices 400px and larger: */
+/* For devices 400px and larger:
 @media only screen and (min-device-width: 540px) {
     body {
         background-image: url('../img/background-16.svg');
     }
-}
+} */
 
 @media (max-width: 476px){
     

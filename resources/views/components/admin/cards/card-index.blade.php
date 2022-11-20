@@ -24,31 +24,31 @@
                 $creditos = 0;
                 $value = 0;
             @endphp 
-            <div class="p-6 rounded-2xl bg-white border">
+            <div class="p-6 rounded-2xl border dark:border-gray-800">
                 <div class="mb-5">
                     <div class="flex gap-1">
-                        <h5 class="text-2xl font-bold">{!! $record->name !!}</h5>
+                        <h5 class="text-2xl text-gray-700 dark:text-gray-200 font-bold">{!! $record->name !!}</h5>
                         <form id="formDelete" class="-my-1 inline-flex ml-auto" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="button" class="bg-gray-100 text-gray-500 rounded-full p-1.5 h-8 w-8 hover:bg-gray-300 hover:text-gray-500 transition-all" data-dismiss-target="#alert" aria-label="Close" onclick="formDelete({{ $record }})">
+                            <button type="button" class="bg-gray-300/20 hover:bg-gray-300/50 text-gray-700 dark:text-gray-200 rounded-full p-1.5 h-8 w-8 hover:bg-gray-300 transition-all" data-dismiss-target="#alert" aria-label="Close" onclick="formDelete({{ $record }})">
                                 <span class="sr-only">Close</span>
                                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                             </button>
                         </form>
                     </div>
                     <div class="border-b-2 border-gray-400 rounded-md"></div>
-                    <p class="font-semibold text-sm text-gray-700 my-2">Desglose de materias</p>
-                    <div class="mb-3 text-gray-100">
+                    <p class="font-semibold text-sm text-gray-700 dark:text-gray-200 my-2">Desglose de materias</p>
+                    <div class="mb-3">
                         <ul class="list-inside">
                             @if ($record->subjects->count())
                                 @foreach ($record->subjects as $key => $item)
-                                    <li class="hover:bg-gray-300/20 rounded-lg px-3 transition text-gray-700 font-semibold">Materia {!! $key+1 !!}: 
-                                        <span class="mx-3 text-sm font-bold text-black">
+                                    <li class="hover:bg-gray-300/20 rounded-lg px-3 transition text-gray-700 dark:text-gray-200 font-semibold">Materia {!! $key+1 !!}: 
+                                        <span class="mx-3 text-sm font-bold text-gray-700 dark:text-gray-200">
                                             {!! $item->grade->name !!}
                                         </span>
                                         <span>
-                                            Cr&eacute;ditos: <span class="mx-3 text-sm font-bold text-black"> {!! $item->credits !!}</span>
+                                            Cr&eacute;ditos: <span class="mx-3 text-sm font-bold text-gray-700 dark:text-gray-200"> {!! $item->credits !!}</span>
                                         </span>
                                     </li>
                                 @endforeach
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="flex justify-between">
-                    <a href="{{ route('admin.quaters.edit', $record) }}" class="text-gray-700 bg-gray-300/20 focus:outline-none font-bold rounded-xl text-sm px-5 py-2.5 text-center hover:bg-gray-300/50 cursor-pointer transition ease-in-out">
+                    <a href="{{ route('admin.quaters.edit', $record) }}" class="text-gray-700 dark:text-gray-200 bg-gray-300/20 focus:outline-none font-bold rounded-xl text-sm px-5 py-2.5 text-center hover:bg-gray-300/50 cursor-pointer transition ease-in-out">
                         Editar
                     </a>
                     @if ($record->subjects->count())
@@ -76,7 +76,7 @@
                                         $value_ia += $value;
                                         $creditos_ia += $creditos;
                                     @endphp
-                                    <span class="font-bold">{{ $creditos <= 0 ? $resultado = 0 : number_format($resultado = $value/$creditos, 2) }}</span>
+                                    <span class="font-bold dark:text-gray-200">{{ $creditos <= 0 ? $resultado = 0 : number_format($resultado = $value/$creditos, 2) }}</span>
                                 </span>
                             </div>
                         </div>

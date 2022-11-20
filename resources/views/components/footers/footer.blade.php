@@ -1,4 +1,4 @@
-<footer class="p-4 backdrop-blur-md bg-white/80 sm:p-6 dark:bg-black/80 border-t">
+<footer class="p-4 backdrop-blur-md bg-white/80 sm:p-6 dark:bg-black/80 border-t border-gray-200 dark:border-gray-800">
     <div class="max-w-full mx-auto px-6 sm:px-6 lg:px-6 xl:px-8 2xl:px-16">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr class="my-6 sm:mx-auto border-gray-200 dark:border-gray-700 lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm font-semibold text-gray-500 sm:text-center dark:text-gray-400">© {{ date("Y") }} <a href="#" class="hover:underline">MAET</a>. All Rights Reserved.
             </span>
