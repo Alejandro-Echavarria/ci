@@ -21,7 +21,18 @@
                         <div class="items-baseline">
                             <a 
                                 href="{{ route('home.index') }}" 
-                                class="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm transition ease-in-out">Inicio</a>
+                                class="
+                                    text-gray-700 
+                                    dark:text-gray-200 
+                                    hover:text-gray-900 
+                                    dark:hover:text-white 
+                                    font-semibold 
+                                    mx-3 
+                                    py-2 
+                                    rounded-2xl 
+                                    text-sm 
+                                    transition 
+                                    ease-in-out">Inicio</a>
                             {!!request()->routeIs('home.index') ? $decorador : ""!!}
                         </div>
                     </div>
@@ -30,7 +41,18 @@
                             <div class="items-baseline">
                                 <a 
                                     href="{{ route('admin.index') }}" 
-                                    class="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm transition ease-in-out">Dashboard</a>
+                                    class="
+                                        text-gray-700 
+                                        dark:text-gray-200 
+                                        hover:text-gray-900 
+                                        dark:hover:text-white 
+                                        font-semibold 
+                                        mx-3 
+                                        py-2 
+                                        rounded-2xl 
+                                        text-sm 
+                                        transition 
+                                        ease-in-out">Dashboard</a>
                                 {!!request()->routeIs('admin.index') ? $decorador : ""!!}
                             </div>
                         </div>
@@ -151,35 +173,131 @@
                             alt="">
                     </div>
                     <div class="ml-3">
-                        <div class="text-base font-bold leading-none text-white">{{ auth()->user()->name }}</div>
+                        <div class="text-base font-bold leading-none text-gray-700 dark:text-white">{{ auth()->user()->name }}</div>
                         <div class="text-sm font-bold leading-none text-gray-400">{{ auth()->user()->email }}</div>
                     </div>
                 </div>
                 <div class="mt-3">
                     <div class="px-4 pt-2 space-y-1 relative">
-                        <a href="{{ route('admin.index') }}" class="text-gray-700 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-sm transition ease-in-out">Dashboard</a>
+                        <a 
+                            href="{{ route('admin.index') }}" 
+                            class="
+                                text-gray-700 
+                                hover:bg-gray-200 
+                                hover:text-gray-900 
+                                dark:text-gray-200 
+                                dark:hover:text-white 
+                                dark:hover:bg-gray-700 
+                                block 
+                                px-3 
+                                py-2 
+                                rounded-md 
+                                text-sm
+                                font-bold
+                                transition 
+                                ease-in-out">Dashboard</a>
                         {!!request()->routeIs('admin.index') ? $decoradorVertical : ""!!}
                     </div>
                     <div class="px-4 pt-2 space-y-1 relative">
-                        <a href="{{ route('admin.quaters.index') }}" class="text-gray-700 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-sm transition ease-in-out">Cuatrimestres</a>
+                        <a 
+                            href="{{ route('admin.quaters.index') }}" 
+                            class="
+                                text-gray-700 
+                                hover:bg-gray-200 
+                                hover:text-gray-900 
+                                dark:text-gray-200 
+                                dark:hover:text-white 
+                                dark:hover:bg-gray-700 
+                                block 
+                                px-3 
+                                py-2 
+                                rounded-md 
+                                text-sm
+                                font-bold
+                                transition 
+                                ease-in-out">Cuatrimestres</a>
                         {!!request()->routeIs('admin.quaters*') ? $decoradorVertical : ""!!}
                     </div>
                     <div class="px-4 pt-2 space-y-1 relative">
-                        <a href="{{ route('admin.colleges.index') }}" class="text-gray-700 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-sm transition ease-in-out">Universidades</a>
+                        <a 
+                            href="{{ route('admin.colleges.index') }}" 
+                            class="
+                                text-gray-700 
+                                hover:bg-gray-200 
+                                hover:text-gray-900 
+                                dark:text-gray-200 
+                                dark:hover:text-white 
+                                dark:hover:bg-gray-700 
+                                block 
+                                px-3 
+                                py-2 
+                                rounded-md 
+                                text-sm
+                                font-bold
+                                transition 
+                                ease-in-out">Universidades</a>
                         {!!request()->routeIs('admin.colleges*') ? $decoradorVertical : ""!!}
                     </div>
                     <div class="px-4 pt-2 space-y-1 relative">
-                        <a href="{{ route('admin.grades.index') }}" class="text-gray-700 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-sm transition ease-in-out">Calificaciones</a>
+                        <a 
+                            href="{{ route('admin.grades.index') }}" 
+                            class="
+                                text-gray-700 
+                                hover:bg-gray-200 
+                                hover:text-gray-900 
+                                dark:text-gray-200 
+                                dark:hover:text-white 
+                                dark:hover:bg-gray-700 
+                                block 
+                                px-3 
+                                py-2 
+                                rounded-md 
+                                text-sm
+                                font-bold
+                                transition 
+                                ease-in-out">Calificaciones</a>
                         {!!request()->routeIs('admin.grades*') ? $decoradorVertical : ""!!}
                     </div>
                     <div class="px-4 pt-2 space-y-1 relative">
-                        <a href="{{ route('profile.show') }}" class="text-gray-700 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-sm transition ease-in-out">Perfil</a>
+                        <a 
+                            href="{{ route('profile.show') }}" 
+                            class="
+                                text-gray-700 
+                                hover:bg-gray-200 
+                                hover:text-gray-900 
+                                dark:text-gray-200 
+                                dark:hover:text-white 
+                                dark:hover:bg-gray-700 
+                                block 
+                                px-3 
+                                py-2 
+                                rounded-md 
+                                text-sm
+                                font-bold
+                                transition 
+                                ease-in-out">Perfil</a>
                         {!!request()->routeIs('profile.show') ? $decoradorVertical : ""!!}
                     </div>
                     <div class="px-4 pt-2 space-y-1 relative">
                         <form method="POST" action="{{ route('logout') }}" x-data>
                             @csrf   
-                            <a href="{{ route('logout') }}" class="text-gray-700 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-sm transition ease-in-out" @click.prevent="$root.submit();">
+                            <a 
+                                href="{{ route('logout') }}" 
+                                class="
+                                    text-gray-700 
+                                    hover:bg-gray-200 
+                                    hover:text-gray-900 
+                                    dark:text-gray-200 
+                                    dark:hover:text-white 
+                                    dark:hover:bg-gray-700 
+                                    block 
+                                    px-3 
+                                    py-2 
+                                    rounded-md 
+                                    text-sm
+                                    font-bold
+                                    transition 
+                                    ease-in-out" @click.prevent="$root.submit();">
                                 Cerrar sesión
                             </a>
                         </form>
