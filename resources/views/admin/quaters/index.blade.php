@@ -2,7 +2,7 @@
     <div class="py-6">
         <div class="container">
             <div class="p-2">
-                <h1 class="text-3xl text-gray-700 font-bold pb-6">Cuatrimestres</h1>
+                <h1 class="text-3xl text-gray-700 dark:text-gray-200 font-bold pb-6">Cuatrimestres</h1>
                 @livewire('admin.quater-index')
             </div>
         </div>

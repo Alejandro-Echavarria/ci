@@ -6,9 +6,9 @@
         <x-admin.inputs.search-index />
     </div>
 </div>
-<div class="overflow-x-auto rounded-2xl border overflow-hidden">
+<div class="overflow-x-auto rounded-2xl border dark:border-gray-800 overflow-hidden">
     <table class="w-full text-sm text-left">
-        <thead class="sm:backdrop-blur-sm bg-gray-300/20 text-gray-700">
+        <thead class="sm:backdrop-blur-sm bg-gray-300/20 text-gray-700 dark:text-gray-200">
             <tr>
                 @foreach ($tableheaders as $tableheader)
                     <th scope="col" class="py-3 px-6">{!! $tableheader !!}</th>
@@ -19,7 +19,7 @@
         @if (count($records))
             @foreach ($records as $key => $record)
                 @if ($record->status !== '0')
-                    <tr class="border border-gray-300/20 border-b bg-white hover:bg-gray-300/20  transition">
+                    <tr class="border-b hover:bg-gray-300/20 dark:border-gray-800 dark:hover:bg-gray-800 transition">
                         @foreach ($tablebody as $key => $item)
                             @if ('status' === $tablebody[$key])
                                 <td class="py-4 px-6">
@@ -31,11 +31,11 @@
                                 </td>
                             @else
                                 @if ($key === 0)    
-                                    <th scope="row" class="py-4 px-6 font-semibold text-gray-700 whitespace-nowrap">
+                                    <th scope="row" class="py-4 px-6 font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">
                                         {{$record[$tablebody[$key]]}}
                                     </th>
                                 @else
-                                    <td class="py-4 px-6 font-semibold text-gray-700 whitespace-nowrap">
+                                    <td class="py-4 px-6 font-semibold text-gray-700 dark:text-gray-200 whitespace-nowrap">
                                         {{$record[$tablebody[$key]]}}
                                     </td>
                                 @endif
@@ -48,7 +48,7 @@
                 @endif
             @endforeach
             @else
-                <tr class="border-b bg-white border-gray-700">
+                <tr class="border-b dark:border-gray-700">
                     <td colspan="6" class="py-4 px-6 sm:text-center text-red-400">
                         No existe ning&uacute;n registro...
                     </td>

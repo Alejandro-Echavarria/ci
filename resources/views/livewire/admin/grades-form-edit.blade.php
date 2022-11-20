@@ -6,7 +6,7 @@
         <div>
             <label 
                 for="name" 
-                class="block mb-2 text-base font-bold text-gray-700">
+                class="block mb-2 text-base font-bold text-gray-700 dark:text-gray-200">
                 Nombre<span class="text-red-500"> *</span>
             </label>
             <input
@@ -14,7 +14,17 @@
                 type="text" 
                 id="name" 
                 name="name" 
-                class="w-full p-2.5 text-sm text-gray-700 border-1 border-gray-300/20 rounded-xl focus:outline-none focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 placeholder:text-gray-500 backdrop-blur-sm bg-gray-300/20 transition ease-in-out {{($errors->has('name') ? ' border-red-400/20  placeholder-red-700 focus:ring-red-500 focus:border-red-500 text-red-500' : null)}}"
+                class="
+                    w-full p-2.5 text-sm 
+                    text-gray-700 
+                    dark:text-gray-200 
+                    border border-gray-300/20 dark:border-gray-700
+                    rounded-xl 
+                    focus:outline-none focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 
+                    placeholder:text-gray-500 dark:placeholder:text-gray-200 
+                    backdrop-blur-sm bg-gray-300/20 dark:bg-gray-800 
+                    transition ease-in-out
+                    {{($errors->has('name') ? ' border-red-400/20 dark:border-red-400/60 placeholder-red-700 focus:ring-red-500 focus:border-red-500 text-red-500' : null)}}"
                 value="{{ old('name') }}"
                 placeholder="Elige un nombre" 
                 required 
@@ -31,11 +41,21 @@
                 <div>
                     <div class="flex gap-3">
                         <div class="flex">
-                            <p class="block text-base font-bold text-gray-700 place-self-center"><span class="hidden-letters">Materia&nbsp;-&nbsp;</span>{{ $key+1 }}</p>
+                            <p class="block text-base font-bold text-gray-700 dark:text-gray-200 place-self-center"><span class="hidden-letters">Materia&nbsp;-&nbsp;</span>{{ $key+1 }}</p>
                         </div>
                         <select 
                             wire:model.defer="subjects.{{ $key }}.grade_id"
-                            class="w-full p-2.5 text-sm text-gray-700 border-1 border-gray-300/20 rounded-xl focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 focus:outline-none placeholder:text-gray-500 backdrop-blur-sm bg-gray-300/20 transition ease-in-out {{($errors->has('subjects.'.$key.'.grade_id') ? ' border-red-400/20 placeholder-red-700 focus:ring-red-500  focus:border-red-500 text-red-500' : null)}}">
+                            class="
+                                w-full p-2.5 text-sm 
+                                text-gray-700 
+                                dark:text-gray-200 
+                                border border-gray-300/20 dark:border-gray-700
+                                rounded-xl 
+                                focus:outline-none focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 
+                                placeholder:text-gray-500 dark:placeholder:text-gray-200 
+                                backdrop-blur-sm bg-gray-300/20 dark:bg-gray-800 
+                                transition ease-in-out
+                                {{($errors->has('subjects.'.$key.'.grade_id') ? ' border-red-400/20 dark:border-red-400/60 placeholder-red-700 focus:ring-red-500  focus:border-red-500 text-red-500' : null)}}">
                             <option value="">-- Selecciona una opci&oacute;n --</option>
                             @foreach ($grades as $grade)
                                 <option value="{{ $grade->id }}">{{ $grade->name }}</option>
@@ -44,7 +64,17 @@
                         <input
                             wire:model.defer="credits.{{ $key }}.credits"
                             type="number"
-                            class="prevenir-envio w-1/3 p-2.5 text-sm text-gray-700 border-1 border-gray-300/20 focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 rounded-xl focus:outline-none placeholder:text-gray-400 backdrop-blur-sm bg-gray-300/20 transition ease-in-out {{($errors->has('credits.'.$key.'.credits') ? ' border-red-400/20  placeholder-red-700 focus:ring-red-500  focus:border-red-500 text-red-500' : null)}}"
+                            class="
+                                prevenir-envio w-1/3 p-2.5 text-sm 
+                                text-gray-700 
+                                dark:text-gray-200 
+                                border border-gray-300/20 dark:border-gray-700
+                                rounded-xl 
+                                focus:outline-none focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 
+                                placeholder:text-gray-500 dark:placeholder:text-gray-200 
+                                backdrop-blur-sm bg-gray-300/20 dark:bg-gray-800 
+                                transition ease-in-out
+                                {{($errors->has('credits.'.$key.'.credits') ? ' border-red-400/20 dark:border-red-400/60 placeholder-red-700 focus:ring-red-500  focus:border-red-500 text-red-500' : null)}}"
                             value=""
                             placeholder="Créditos" 
                             required 
@@ -72,7 +102,7 @@
         <small class="text-red-500">{{ session('error') }}</small>
     @endif
     <div class="w-full flex justify-end">
-        <a href="{{ route('admin.quaters.index') }}" class="font-semibold text-sm text-gray-700 hover:underline px-5 py-2.5 text-center ">Regresar</a>
+        <a href="{{ route('admin.quaters.index') }}" class="font-semibold text-sm text-gray-700 dark:text-gray-200 hover:underline px-5 py-2.5 text-center ">Regresar</a>
         <button wire:click.prevent="save()" type="button" class="text-white color-secundario focus:outline-none font-medium rounded-xl text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:hover:bg-blue-700 cursor-pointer transition ease-in-out">
             Actualizar
         </button>
