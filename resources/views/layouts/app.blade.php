@@ -9,6 +9,14 @@
         <meta name="author" content="Manuel Echavarria">
         <title>{{ config('app.name', 'MaetDev') }}</title>
         <meta name="description" content="Calcula y gestiona de manera fácil tu índice académico."/>
+        <script>
+            if (localStorage.dark == 1) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
+        
         <link rel="shortcut icon" href="{{ asset('img/11.ico') }}">
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -33,7 +41,7 @@
         @stack('modals')
         @livewireScripts
         <script src="{{ asset('js/generals_functions.js') }}"></script>
-        <script src="{{ asset('vendor/sweetalert/sweetalert2.all.min.js') }}"></script>
+        <script src="{{ asset('vendor/sweetalert/sweetalert2.all.min.js') }}"></script>      
         @yield('scripts')
     </body>
 </html>
