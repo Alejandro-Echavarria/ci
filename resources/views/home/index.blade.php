@@ -2,10 +2,10 @@
     <div class="w-full h-[70vh]">
         <div class="py-12">
             <div class="container">
-                <div class="py-6 text-gray-700 dark:text-gray-200 text-center font-semibold grid">
+                <div class="py-6 text-gray-700 dark:text-gray-50 text-center font-semibold grid">
                     <h1 class="text-4xl lg:text-7xl pb-6 font-bold">Calcula tu &iacute;ndice universitario</h1>
                     <p class="text-xl lg:text-3xl font-semibold mt-5">
-                        Una manera f&aacute;cil de llevar tu &iacute;ndice y calcular tus calificaciones de la universidad de manera r&aacute;pida, sencilla, amigable y segura.
+                        Una manera f&aacute;cil de llevar tu &iacute;ndice y calcular tus calificaciones de la universidad de forma gratis, r&aacute;pida, amigable y segura.
                     </p>
                     <div class="mt-6 w-full">
                         <div class="mt-5">
