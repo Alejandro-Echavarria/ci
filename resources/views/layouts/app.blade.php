@@ -8,7 +8,7 @@
             try {
               if (localStorage.dark == 1 || (!('dark' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark')
-                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0B1120')
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000000')
               } else {
                 document.documentElement.classList.remove('dark')
               }
