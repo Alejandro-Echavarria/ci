@@ -241,15 +241,6 @@ input[type=number] { -moz-appearance:textfield; }
     color: white;
 }
 
-/* End */
-
-/* For devices 400px and larger:
-@media only screen and (min-device-width: 540px) {
-    body {
-        background-image: url('../img/background-16.svg');
-    }
-} */
-
 @media (max-width: 476px){
     
     .hidden-letters{display: none;}
