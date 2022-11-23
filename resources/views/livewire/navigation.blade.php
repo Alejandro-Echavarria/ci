@@ -234,46 +234,50 @@
                                 ease-in-out">Cuatrimestres</a>
                         {!!request()->routeIs('admin.quaters*') ? $decoradorVertical : ""!!}
                     </div>
-                    <div class="px-4 pt-2 space-y-1 relative">
-                        <a 
-                            href="{{ route('admin.colleges.index') }}" 
-                            class="
-                                text-gray-700 
-                                hover:bg-gray-200 
-                                hover:text-gray-900 
-                                dark:text-gray-200 
-                                dark:hover:text-white 
-                                dark:hover:bg-gray-700 
-                                block 
-                                px-3 
-                                py-2 
-                                rounded-md 
-                                text-sm
-                                font-bold
-                                transition 
-                                ease-in-out">Universidades</a>
-                        {!!request()->routeIs('admin.colleges*') ? $decoradorVertical : ""!!}
-                    </div>
-                    <div class="px-4 pt-2 space-y-1 relative">
-                        <a 
-                            href="{{ route('admin.grades.index') }}" 
-                            class="
-                                text-gray-700 
-                                hover:bg-gray-200 
-                                hover:text-gray-900 
-                                dark:text-gray-200 
-                                dark:hover:text-white 
-                                dark:hover:bg-gray-700 
-                                block 
-                                px-3 
-                                py-2 
-                                rounded-md 
-                                text-sm
-                                font-bold
-                                transition 
-                                ease-in-out">Calificaciones</a>
-                        {!!request()->routeIs('admin.grades*') ? $decoradorVertical : ""!!}
-                    </div>
+                    @can('admin.colleges.index')    
+                        <div class="px-4 pt-2 space-y-1 relative">
+                            <a 
+                                href="{{ route('admin.colleges.index') }}" 
+                                class="
+                                    text-gray-700 
+                                    hover:bg-gray-200 
+                                    hover:text-gray-900 
+                                    dark:text-gray-200 
+                                    dark:hover:text-white 
+                                    dark:hover:bg-gray-700 
+                                    block 
+                                    px-3 
+                                    py-2 
+                                    rounded-md 
+                                    text-sm
+                                    font-bold
+                                    transition 
+                                    ease-in-out">Universidades</a>
+                            {!!request()->routeIs('admin.colleges*') ? $decoradorVertical : ""!!}
+                        </div>
+                    @endcan
+                    @can('admin.grades.index')
+                        <div class="px-4 pt-2 space-y-1 relative">
+                            <a 
+                                href="{{ route('admin.grades.index') }}" 
+                                class="
+                                    text-gray-700 
+                                    hover:bg-gray-200 
+                                    hover:text-gray-900 
+                                    dark:text-gray-200 
+                                    dark:hover:text-white 
+                                    dark:hover:bg-gray-700 
+                                    block 
+                                    px-3 
+                                    py-2 
+                                    rounded-md 
+                                    text-sm
+                                    font-bold
+                                    transition 
+                                    ease-in-out">Calificaciones</a>
+                            {!!request()->routeIs('admin.grades*') ? $decoradorVertical : ""!!}
+                        </div>
+                    @endcan
                     <div class="px-4 pt-2 space-y-1 relative">
                         <a 
                             href="{{ route('profile.show') }}" 
