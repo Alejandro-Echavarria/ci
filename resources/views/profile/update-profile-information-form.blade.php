@@ -55,14 +55,36 @@
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name" value="{{ __('Name') }}" />
-            <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
+            <x-jet-input id="name" type="text" 
+                class="
+                    w-full p-2.5 text-sm 
+                    text-gray-700 
+                    dark:text-gray-200 
+                    border border-gray-300/20 dark:border-gray-700 
+                    rounded-xl 
+                    focus:outline-none focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 
+                    placeholder:text-gray-500 dark:placeholder:text-gray-200 
+                    backdrop-blur-sm bg-gray-300/20 dark:bg-gray-800 
+                    transition ease-in-out" 
+                wire:model.defer="state.name" autocomplete="name" />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
 
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="email" value="{{ __('Email') }}" />
-            <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
+            <x-jet-input id="email" type="email" 
+                class="
+                    w-full p-2.5 text-sm 
+                    text-gray-700 
+                    dark:text-gray-200 
+                    border border-gray-300/20 dark:border-gray-700 
+                    rounded-xl 
+                    focus:outline-none focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 
+                    placeholder:text-gray-500 dark:placeholder:text-gray-200 
+                    backdrop-blur-sm bg-gray-300/20 dark:bg-gray-800 
+                    transition ease-in-out" 
+                wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())

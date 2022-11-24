@@ -30,11 +30,11 @@
     </head>
     <body class="font-sans antialiased bg-white dark:bg-gray-900">
         <x-jet-banner />
-        <div class="min-h-screen">
+        <div>
             @livewire('navigation')
 
             <!-- Page Content -->
-            <main>
+            <main class="min-h-screen">
                 {{ $slot }}
             </main>
         </div>
