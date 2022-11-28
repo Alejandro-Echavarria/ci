@@ -22,7 +22,7 @@
                     rounded-xl 
                     focus:outline-none focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 
                     placeholder:text-gray-500 dark:placeholder:text-gray-200 
-                    backdrop-blur-sm bg-gray-300/20 dark:bg-gray-800 
+                    backdrop-blur-sm bg-gray-300/20 dark:bg-gray-800/20
                     transition ease-in-out
                     {{($errors->has('name') ? ' border-red-400/20 dark:border-red-400/60 placeholder-red-700 focus:ring-red-500 focus:border-red-500 text-red-500' : null)}}"
                 value="{{ old('name') }}"
@@ -53,7 +53,7 @@
                                 rounded-xl 
                                 focus:outline-none focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 
                                 placeholder:text-gray-500 dark:placeholder:text-gray-200 
-                                backdrop-blur-sm bg-gray-300/20 dark:bg-gray-800 
+                                backdrop-blur-sm bg-gray-300/20 dark:bg-black/80
                                 transition ease-in-out
                                 {{($errors->has('subjects.'.$key.'.grade_id') ? ' border-red-400/20 dark:border-red-400/60 placeholder-red-700 focus:ring-red-500  focus:border-red-500 text-red-500' : null)}}">
                             <option value="">-- Selecciona una opci&oacute;n --</option>
@@ -72,7 +72,7 @@
                                 rounded-xl 
                                 focus:outline-none focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 
                                 placeholder:text-gray-500 dark:placeholder:text-gray-200 
-                                backdrop-blur-sm bg-gray-300/20 dark:bg-gray-800 
+                                backdrop-blur-sm bg-gray-300/20 dark:bg-gray-800/20 
                                 transition ease-in-out
                                 {{($errors->has('credits.'.$key.'.credits') ? ' border-red-400/20 dark:border-red-400/60 placeholder-red-700 focus:ring-red-500  focus:border-red-500 text-red-500' : null)}}"
                             value=""
