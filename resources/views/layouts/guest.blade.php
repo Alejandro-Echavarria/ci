@@ -15,7 +15,7 @@
             } catch (_) {}
           </script>
         <meta name="author" content="Manuel Echavarria">
-        <title>{{ config('app.name', 'MaetDev') }}</title>
+        <title>{{ config('app.name', 'Maet') }}</title>
 
         <link rel="shortcut icon" href="{{ asset('img/11.ico') }}">
         <!-- Fonts -->
@@ -28,7 +28,7 @@
         @livewireStyles
     </head>
     <body>
-        <div class="font-sans antialiased bg-white dark:bg-gray-900"">
+        <div class="font-sans antialiased dark:bg-black/90">
             {{ $slot }}
         </div>
         @livewireScripts
