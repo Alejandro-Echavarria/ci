@@ -24,7 +24,7 @@
                 $creditos = 0;
                 $value = 0;
             @endphp 
-            <div class="p-6 rounded-2xl border dark:border-gray-800">
+            <div class="p-6 rounded-2xl border dark:border-black/50">
                 <div class="mb-5">
                     <div class="flex gap-1">
                         <h5 class="text-2xl text-gray-700 dark:text-gray-200 font-bold">{!! $record->name !!}</h5>

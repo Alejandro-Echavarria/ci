@@ -28,7 +28,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased dark:bg-black/90">
+    <body class="font-sans antialiased dark:bg-black/80">
         <x-jet-banner />
         <div>
             @livewire('navigation')
