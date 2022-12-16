@@ -1,11 +1,11 @@
-<footer class="py-4 backdrop-blur-md bg-white/80 dark:bg-transparent border-t border-gray-200 dark:border-black/20">
+<footer class="py-4 backdrop-blur-md bg-white/80 dark:bg-transparent border-t-2 dark:border-gray-600">
     <div class="max-w-full mx-auto px-6 sm:px-6 lg:px-6 xl:px-8 2xl:px-16">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <a href="/" class="flex-shrink-0">
                     <div class="flex items-center">
                         <div class="items-center">
-                            <p class="font-bold dark:text-gray-200 text-gray-700"><span class="h-12 w-12">MAET</span> - CI</p>
+                            <p class="font-bold dark:text-gray-200 text-gray-700"><span class="h-12 w-12">MAET</span> / CI</p>
                         </div>
                     </div>
                 </a>
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <hr class="my-6 sm:mx-auto border-gray-200 dark:border-gray-700 lg:my-8" />
+        <hr class="my-6 sm:mx-auto border-t-2 dark:border-gray-600 lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm font-semibold text-gray-500 sm:text-center dark:text-gray-400">© {{ date("Y") }} <a href="#" class="hover:underline">MAET</a>. All Rights Reserved.
             </span>

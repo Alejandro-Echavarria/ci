@@ -6,7 +6,7 @@
         <x-admin.inputs.search-index />
     </div>
 </div>
-<div class="overflow-x-auto rounded-2xl border dark:border-black/50 overflow-hidden">
+<div class="overflow-x-auto rounded-2xl border-2 dark:border-gray-600 overflow-hidden">
     <table class="w-full text-sm text-left">
         <thead class="sm:backdrop-blur-sm bg-gray-300/20 text-gray-700 dark:text-gray-200">
             <tr>
@@ -19,7 +19,7 @@
         @if (count($records))
             @foreach ($records as $key => $record)
                 @if ($record->status !== '0')
-                    <tr class="border-b hover:bg-gray-300/20 dark:border-black/50 dark:hover:bg-gray-300/20 transition">
+                    <tr class="dark:border-gray-600 hover:bg-gray-300/20 dark:hover:bg-gray-300/20 transition">
                         @foreach ($tablebody as $key => $item)
                             @if ('status' === $tablebody[$key])
                                 <td class="py-4 px-6">

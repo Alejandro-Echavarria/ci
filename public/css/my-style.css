@@ -82,39 +82,169 @@
     -o-transform: scale(0);
 }
 
-.scrollCustom::-webkit-scrollbar-track {
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+   
+button.calculate {
+    width: 16rem;
+    height: auto;
+}
+   
+button.calculate .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    /* background: #282936; */
+    border-radius: 1.625rem;
+}
+   
+button.calculate .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+   
+button.calculate .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+   
+button.calculate .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+   
+button.calculate .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    /* color: #282936; */
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+   
+button:hover .circle {
+    width: 100%;
+}
+   
+button:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
 }
 
-/* Works on Firefox */
-/* * {
-    scrollbar-width: thin;
-    scrollbar-color: rgb(156, 156, 156) rgba(255, 166, 0, 0);
-} */
-
-/* Works on Chrome, Edge, and Safari */
-/* *::-webkit-scrollbar {
-    width: 7px;
-}
-
-*::-webkit-scrollbar-track {
-    background: rgba(197, 197, 197, 0);
-} */
-
-/* *::-webkit-scrollbar-thumb {
-    background-color:  rgb(156, 156, 156);
-    border-radius: 20px;
-} */
-
-/* *::-webkit-scrollbar:horizontal {
-    height: 5px;
-    width: 5px;
-} */
-
+button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  
+  button span {
+    display: block;
+    margin-left: 0.3em;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* button svg {
+    display: block;
+    -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  }
+  
+  button:hover .svg-wrapper {
+    -webkit-animation: fly-1 0.6s ease-in-out infinite alternate;
+            animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  
+  button:hover svg {
+    -webkit-transform: translateX(1.2em) rotate(45deg) scale(1.1);
+        -ms-transform: translateX(1.2em) rotate(45deg) scale(1.1);
+            transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  }
+  
+  button:hover span {
+    -webkit-transform: translateX(5em);
+        -ms-transform: translateX(5em);
+            transform: translateX(5em);
+  }
+  
+  button:active {
+    -webkit-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  
+  @-webkit-keyframes fly-1 {
+    from {
+      -webkit-transform: translateY(0.1em);
+              transform: translateY(0.1em);
+    }
+  
+    to {
+      -webkit-transform: translateY(-0.1em);
+              transform: translateY(-0.1em);
+    }
+  }
+  
+  @keyframes fly-1 {
+    from {
+      -webkit-transform: translateY(0.1em);
+              transform: translateY(0.1em);
+    }
+  
+    to {
+      -webkit-transform: translateY(-0.1em);
+              transform: translateY(-0.1em);
+    }
+  } */
+  
+  
 /* Button color */
 .blue-color {
     background-color: rgb(198, 227, 255);

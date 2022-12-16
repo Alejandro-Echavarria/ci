@@ -2,17 +2,20 @@
     <div class="w-full">
         <div class="pt-12">
             <div class="container">
-                <div class="py-6 text-gray-700 dark:text-gray-50 text-center font-semibold grid">
+                <div class="py-6 text-gray-700 dark:text-gray-200 text-center font-semibold grid">
                     <h1 class="text-4xl lg:text-7xl pb-6 font-bold">Calcula tu &iacute;ndice universitario</h1>
                     <p class="text-xl lg:text-3xl font-semibold mt-5">
-                        Una manera f&aacute;cil de llevar tu &iacute;ndice y calcular tus calificaciones de la universidad de forma gratis, r&aacute;pida y amigable.
+                        Mant&eacute;n un seguimiento de tus calificaciones universitarias con nuestra herramienta amigable, de manera gratuita y r&aacute;pida
                     </p>
                     <div class="mt-6 w-full">
-                        <div class="mt-5">
-                            <a href="{{ route('register') }}" class="px-5 py-2.5 text-gray-700 dark:text-gray-200 focus:outline-none hover:text-gray-900 dark:hover:text-white rounded-2xl text-sm md:text-xl w-full sm:w-auto text-center bg-gray-200 dark:bg-gray-700 font-semibold cursor-pointer transition ease-in-out">
-                                Empieza a calcular
-                            </a>
-                        </div>
+                        <a href="{{ route('register') }}" class="">
+                            <button class="calculate mt-5">
+                                <span class="circle bg-gradient-to-r from-green-200/80 to-green-400/20" aria-hidden="true">
+                                    <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text text-gray-700 dark:text-gray-200">Empeiza a calcular</span>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>

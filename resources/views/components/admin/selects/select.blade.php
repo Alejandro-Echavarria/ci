@@ -20,7 +20,7 @@
                 rounded-xl 
                 focus:outline-none focus:ring focus:ring-gray-500/20 focus:border-gray-400/20 
                 placeholder:text-gray-500 dark:placeholder:text-gray-200 
-                backdrop-blur-sm bg-gray-300/20 dark:bg-black/80
+                backdrop-blur-sm bg-gray-300/20 dark:bg-[#2f3134]
                 transition ease-in-out '
         ]) !!}
         @error('status')
