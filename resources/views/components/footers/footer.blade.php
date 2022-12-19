@@ -22,7 +22,7 @@
                             <a href="#" class="hover:underline" target="_blank" rel="noreferrer noopener">Portfolio</a>
                         </li>
                         <li class="mb-4">
-                            <a href="http://blog.maet.tk" class="hover:underline" target="_blank" rel="noreferrer noopener">Blog</a>
+                            <a href="https://blog.maet.dev" class="hover:underline" target="_blank" rel="noreferrer noopener">Blog</a>
                         </li>
                     </ul>
                 </div>
