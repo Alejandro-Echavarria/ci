@@ -1,6 +1,6 @@
 @php
-    $decorador = '<div class="absolute w-6 m-auto inset-x-0 bottom-0 top-7"><div class="border-b-4 border-color-secundario rounded-md"></div></div>';
-    $decoradorVertical = '<div class="absolute inset-y-0 top-3"><div class="h-6 border-l-4 border-color-secundario rounded-md"></div></div>';
+    $decorador = '<div class="absolute w-6 m-auto inset-x-0 bottom-0 top-7"><div class="border-b-4 border-gray-700 dark:border-gray-200 rounded-md"></div></div>';
+    $decoradorVertical = '<div class="absolute inset-y-0 top-3"><div class="h-6 border-l-4 border-gray-700 dark:border-gray-200 rounded-md"></div></div>';
 @endphp
 
 <nav
@@ -12,7 +12,7 @@
             <a href="/" class="flex-shrink-0">
                 <div class="flex items-center">
                     <div class="items-center">
-                        <p class="font-extrabold text-gray-700 dark:text-gray-200"><span class="h-12 w-12">MAET</span> - CI</p>
+                        <p class="font-extrabold text-gray-700 dark:text-gray-200"><span class="h-12 w-12">MAET</span> / CI</p>
                     </div>
                 </div>
             </a>
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         @can('admin.colleges.index', 'admin.grades.index')  
-                            <div class="hidden md:block relative rounded-2xl  text-sm w-full px-3 cursor-pointer" x-data="{ open: false }">
+                            <div class="hidden md:block relative rounded-2xl text-sm w-full px-3 cursor-pointer" x-data="{ open: false }">
                                 <div class="items-baseline">
                                     <span x-on:click="open = ! open"
                                         class="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-semibold transition ease-in-out"
@@ -76,7 +76,7 @@
                                     </span>
                                     {!!request()->routeIs('admin.grades*') || request()->routeIs('admin.colleges*') ? $decorador : ""!!}
                                 </div>
-                                <div x-show="open" x-on:click.away="open = false" x-transition:enter.duration.200ms x-transition:leave.duration.200ms style="display: none;" class="origin-top-right absolute right-0 mt-2 w-48 rounded-2xl shadow-sm backdrop-blur-md bg-white/80 dark:bg-black/80 ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                <div x-show="open" x-on:click.away="open = false" x-transition:enter.duration.200ms x-transition:leave.duration.200ms style="display: none;" class="origin-top-right absolute right-0 mt-2 w-48 rounded-2xl bg-white dark:bg-[#333333] border-2 dark:border-gray-600"
                                     role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                     tabindex="-1">
                                     @can('admin.colleges.index')
@@ -131,17 +131,17 @@
                                             alt="">
                                     </button>
                                 </div>
-                                <div x-show="open" x-on:click.away="open = false" x-transition:enter.duration.200ms x-transition:leave.duration.200ms style="display: none;" class="origin-top-right absolute right-0 mt-2 w-48 rounded-2xl shadow-sm bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                <div x-show="open" x-on:click.away="open = false" x-transition:enter.duration.200ms x-transition:leave.duration.200ms style="display: none;" class="origin-top-right absolute right-0 mt-2 w-48 rounded-2xl bg-white dark:bg-[#333333] border-2 dark:border-gray-600"
                                     role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                     tabindex="-1">
                                     
-                                    <a href="{{ route('profile.show') }}" class="block px-4 m-2 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 {!! request()->routeIs('profile.show') ? "bg-gray-100" : "" !!} rounded-lg" role="menuitem" tabindex="-1"
+                                    <a href="{{ route('profile.show') }}" class="block px-4 m-2 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-700 hover:bg-gray-100 {!! request()->routeIs('profile.show') ? "bg-gray-100 dark:text-gray-700" : "" !!} rounded-lg" role="menuitem" tabindex="-1"
                                         id="user-menu-item-0">Perfil
                                     </a>
     
                                     <form method="POST" action="{{ route('logout') }}" x-data>
                                         @csrf    
-                                        <a href="{{ route('logout') }}" class="block px-4 m-2 py-2 text-sm text-gray-700 font-semibold hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="-1" id="user-menu-item-2" @click.prevent="$root.submit();">
+                                        <a href="{{ route('logout') }}" class="block px-4 m-2 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-700 hover:bg-gray-100 hover:rounded-lg" role="menuitem" tabindex="-1" id="user-menu-item-2" @click.prevent="$root.submit();">
                                             Cerrar sesión
                                         </a>
                                     </form>
@@ -151,7 +151,7 @@
                             <a href="{{ route('login') }}" class="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm transition ease-in-out">
                                 Iniciar
                             </a>
-                            <a href="{{ route('register') }}" class="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm bg-gray-200 dark:bg-gray-700 px-3 transition ease-in-out">
+                            <a href="{{ route('register') }}" class="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-semibold mx-3 py-2 rounded-2xl text-sm bg-gray-300/20 hover:bg-gray-300/50 px-3 transition ease-in-out">
                                 Registrarse
                             </a>
                         @endauth
