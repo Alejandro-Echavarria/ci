@@ -13,6 +13,7 @@ class QuaterController extends Controller
         $this->middleware('can:admin.quaters.create')->only('create');
         $this->middleware('can:admin.quaters.edit')->only('edit');
         $this->middleware('can:admin.quaters.destroy')->only('destroy');
+        $this->middleware(['verified']);
     }
     
     public function index()
